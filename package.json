@@ -4,11 +4,26 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vue-tsc -b && vite build",
-    "preview": "vite preview",
     "lint:scripts": "eslint . --fix",
-    "lint:styles": "stylelint \"**/*.{vue,scss,sass,css}\" --fix --allow-empty-input"
+    "lint:styles": "stylelint \"**/*.{vue,scss,sass,css}\" --fix --allow-empty-input",
+    "svg:generate-sprite": "tsx scripts/generate-sprite.ts",
+    "prettify": "prettier . --write --log-level silent --ignore-unknown",
+    "vite-dev": "vite --host",
+    "vite-build": "vite build",
+    "vite-preview": "vite preview --host",
+    "lighthouse": "unlighthouse --site http://192.168.1.145:4173/ --no-cache --desktop",
+    "vue-tsc-check": "vue-tsc --build --force",
+    "vue-tsc-watch": "vue-tsc --build --watch --preserveWatchOutput --pretty",
+    "max-old-space": "cross-env NODE_OPTIONS=--max-old-space-size=2048",
+    "dev": "npm-run-all --parallel vite-dev vue-tsc-watch",
+    "preview": "npm-run-all --parallel vite-preview lighthouse",
+    "type-check": "npm-run-all vue-tsc-check",
+    "build-only": "npm-run-all vite-build",
+    "build-local": "npm-run-all type-check vite-build",
+    "build": "cross-env NODE_OPTIONS=--max-old-space-size=2048 npm run svg:generate-sprite && cross-env NODE_OPTIONS=--max-old-space-size=2048 vue-tsc --noEmit && cross-env NODE_OPTIONS=--max-old-space-size=2048 npm run vite-build",
+    "lint": "npm-run-all --parallel lint:scripts lint:styles",
+    "pre-commit": "npm-run-all lint prettify",
+    "postinstall": "husky"
   },
   "dependencies": {
     "pinia": "^3.0.4",
@@ -25,6 +40,9 @@
     "eslint": "^9.39.1",
     "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-vue": "^10.6.2",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.7",
+    "prettier": "^3.7.3",
     "sass": "^1.94.2",
     "stylelint": "^16.26.1",
     "stylelint-config-html": "^1.1.0",
@@ -36,5 +54,13 @@
     "vite-plugin-vue-devtools": "^8.0.5",
     "vue-eslint-parser": "^10.2.0",
     "vue-tsc": "^3.1.5"
+  },
+  "lint-staged": {
+    "*": "npm run prettify",
+    "*.{ts,tsx,vue,js,jsx,cjs,mjs}": [
+      "npm run lint:scripts",
+      "bash -c 'npm run vue-tsc-check'"
+    ],
+    "*.{vue,scss,sass,css}": "npm run lint:styles"
   }
 }

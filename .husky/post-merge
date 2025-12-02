@@ -1,0 +1,38 @@
+# Check if there are changes to .svg files in src/assets/icons
+svg_changes=$(git diff --name-only HEAD@{1} HEAD src/assets/icons | grep "\.svg$")
+
+# Run npm run svg:generate-sprite if there are changes
+if [ -n "$svg_changes" ]; then
+  npm run svg:generate-sprite
+
+# Define the regex for package-lock.json files
+PACKAGE_LOCK_REGEX="(^packages\/.*\/package-lock\.json)|(^package-lock\.json)"
+
+# Get all changed package-lock.json files
+changed_package_locks=$(git diff --name-only HEAD@{1} HEAD | grep -E "$PACKAGE_LOCK_REGEX")
+
+# Initialize an error flag
+error_occurred=0
+
+# Update dependencies if package-lock.json files have changed
+if [ -n "$changed_package_locks" ]; then
+  echo "$changed_package_locks" | while read -r package; do
+    echo "📦 $package был изменен. Запуск обновления зависимостей..."
+    DIR=$(dirname "$package")
+    if ! (cd "$DIR" && npm install); then
+      echo "Ошибка при установке зависимостей для $package"
+      error_occurred=1
+    fi
+  done
+else
+  echo "Текущие зависимости актуальны."
+fi
+
+# Exit with error code if an error occurred during npm install
+if [ "$error_occurred" -ne 0 ]; then
+  exit 1
+fi
+
+# Exit successfully if no errors occurred
+exit 0
+
