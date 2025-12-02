@@ -15,7 +15,7 @@
     "vue-tsc-check": "vue-tsc --build --force",
     "vue-tsc-watch": "vue-tsc --build --watch --preserveWatchOutput --pretty",
     "max-old-space": "cross-env NODE_OPTIONS=--max-old-space-size=2048",
-    "dev": "npm-run-all --parallel vite-dev vue-tsc-watch",
+    "dev": "vite",
     "preview": "npm-run-all --parallel vite-preview lighthouse",
     "type-check": "npm-run-all vue-tsc-check",
     "build-only": "npm-run-all vite-build",
