@@ -1,0 +1,23 @@
+# .eslintignore
+
+# Ignore node_modules
+node_modules
+
+# Ignore build output
+dist
+
+# Ignore vite cache
+.vite
+
+# Ignore .env files
+.env*
+*.sh
+*.md
+*.woff
+*.ttf
+.vscode
+.idea
+dist
+/docs
+.husky
+.unlighthouse
