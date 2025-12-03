@@ -1,3 +1,21 @@
 {
-  "recommendations": ["Vue.volar", "dbaeumer.vscode-eslint"]
+  "recommendations": [
+    "edwinhuish.better-comments-next",
+    "streetsidesoftware.code-spell-checker",
+    "pucelle.vscode-css-navigation",
+    "phoenisx.cssvar",
+    "editorconfig.editorconfig",
+    "dbaeumer.vscode-eslint",
+    "sleistner.vscode-fileutils",
+    "huuums.vscode-fast-folder-structure",
+    "eamodio.gitlens",
+    "ahkohd.glance",
+    "vincaslt.highlight-matching-tag",
+    "esbenp.prettier-vscode",
+    "alefragnani.project-manager",
+    "streetsidesoftware.code-spell-checker-russian",
+    "stylelint.vscode-stylelint",
+    "jock.svg",
+    "gruntfuggly.todo-tree"
+  ]
 }
