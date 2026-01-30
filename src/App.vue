@@ -1,31 +1,28 @@
 <template>
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img class="logo" alt="Vite logo" src="/vite.svg" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img class="logo vue" alt="Vue logo1" src="./assets/vue.svg" />
-    </a>
+  <div class="app">
+    <div id="overlays" class="app_overlays" />
   </div>
 </template>
 
 <script setup lang="ts"></script>
 
 <style scoped lang="scss">
-.logo {
-  height: 6em;
-  padding: 1.5em;
+.app {
+  position: relative;
 
-  transition: filter 300ms;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
 
-  will-change: filter;
-}
+  min-height: 100vh;
 
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
+  background-color: var(--app-color-background);
 
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
+  &__overlays {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 10000;
+  }
 }
 </style>
