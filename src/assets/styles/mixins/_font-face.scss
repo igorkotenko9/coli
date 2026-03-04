@@ -1,0 +1,47 @@
+/* stylelint-disable function-url-quotes */
+@use "sass:map";
+@use "sass:list";
+@use "sass:string";
+
+// Миксин для генерации font-face
+@mixin font-face(
+  $name,
+  $path,
+  $weight: null,
+  $style: null,
+  $exts: eot woff2 woff ttf svg
+) {
+  $src: null;
+  $extmods: (
+    eot: "?",
+    svg: "#" + str-replace($name, " ", "_"),
+  );
+  $formats: (
+    otf: "opentype",
+    ttf: "truetype",
+  );
+
+  @each $ext in $exts {
+    $extmod: if(
+      map.has-key($extmods, $ext),
+      $ext + map.get($extmods, $ext),
+      $ext
+    );
+    $format: if(map.has-key($formats, $ext), map.get($formats, $ext), $ext);
+    $src: list.append(
+      $src,
+      url(string.quote($path + "." + $extmod)) format(string.quote($format)),
+      comma
+    );
+  }
+
+  @font-face {
+    // TODO Проверить действие правила для sass пространств имен
+    /* stylelint-disable-next-line declaration-property-value-no-unknown */
+    font-family: string.quote($name);
+    font-weight: $weight;
+    font-style: $style;
+    src: $src;
+    font-display: swap;
+  }
+}

@@ -1,0 +1,61 @@
+@use "@style/mixins" as mixins;
+
+$inter-path: "/fonts";
+$fonts-extensions: "ttf";
+
+// **************************
+// *** Commissioner ***
+// **************************
+$inter: "Commissioner";
+
+@include mixins.font-face(
+  $inter,
+  "#{$inter-path}/#{$inter}/Commissioner-Light",
+  300,
+  normal,
+  $fonts-extensions
+);
+@include mixins.font-face(
+  $inter,
+  "#{$inter-path}/#{$inter}/Commissioner-Regular",
+  400,
+  normal,
+  $fonts-extensions
+);
+@include mixins.font-face(
+  $inter,
+  "#{$inter-path}/#{$inter}/Commissioner-Medium",
+  500,
+  normal,
+  $fonts-extensions
+);
+@include mixins.font-face(
+  $inter,
+  "#{$inter-path}/#{$inter}/Commissioner-SemiBold",
+  // Исправлено: SemiBold
+  600,
+  normal,
+  $fonts-extensions
+);
+@include mixins.font-face(
+  $inter,
+  "#{$inter-path}/#{$inter}/Commissioner-Bold",
+  700,
+  normal,
+  $fonts-extensions
+);
+@include mixins.font-face(
+  $inter,
+  "#{$inter-path}/#{$inter}/Commissioner-ExtraBold",
+  // Исправлено: ExtraBold
+  800,
+  normal,
+  $fonts-extensions
+);
+@include mixins.font-face(
+  $inter,
+  "#{$inter-path}/#{$inter}/Commissioner-Black",
+  900,
+  normal,
+  $fonts-extensions
+);

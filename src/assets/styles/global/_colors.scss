@@ -1,5 +1,49 @@
 /* stylelint-disable-next-line selector-pseudo-class-disallowed-list */
 :root {
+  // Base
   --app-color-white: #fff;
-  --app-color-background: #f5faf5;
+  --app-color-black: #121212;
+  --app-color-background: #121212;
+  --app-color-background-light: #f5f0e6;
+
+  // Primary
+  --app-color-primary-norm: #d4af37;
+  --app-color-primary-dark: #9e762f;
+  --app-color-primary-light: #e6c55c;
+  --app-color-primary-pale: #c4a74720;
+
+  // Secondary
+  --app-color-secondary-norm: #b38b40;
+  --app-color-secondary-dark: #8b6930;
+  --app-color-secondary-light: #d9b15c;
+  --app-color-secondary-text: #c6b28b;
+
+  // Gray
+  --app-color-gray-black-deep: #0a0a0a;
+  --app-color-gray-black: #1a1a1a;
+  --app-color-gray-dark: #2a2a2a;
+  --app-color-gray-medium: #3d3d3d;
+  --app-color-gray-blue: #4a4a5a;
+  --app-color-gray-norm: #6a6a6a;
+  --app-color-gray-light: #aaa;
+  --app-color-gray-stroke: #4d4d4d;
+  --app-color-gray-pale: #e0e0e0;
+
+  // Red
+  --app-color-red-norm: #b53b3b;
+  --app-color-red-dark: #8b2a2a;
+  --app-color-red-light: #d65c5c;
+  --app-color-red-pale: #4a2a2a;
+
+  // Green
+  --app-color-green-dark: #2a6b2a;
+  --app-color-green-norm: #3d8b3d;
+  --app-color-green-light: #6ba36b;
+  --app-color-green-pale: #1e3a1e;
+
+  // Yellow
+  --app-color-yellow-dark: #997322;
+  --app-color-yellow-norm: #d4a74f;
+  --app-color-yellow-light: #e6c180;
+  --app-color-yellow-pale: #3a321a;
 }

@@ -12,8 +12,22 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true,
     "paths": {
+      "@fields/*": ["./src/components/fields/*"],
       "@components/*": ["./src/components/*"],
+      "@views/*": ["./src/views/*"],
+      "@static/*": ["./src/static/*"],
       "@utils": ["./src/utils/index.ts"],
+      "@services/*": ["./src/services/*"],
+      "@hooks": ["./src/hooks/index.ts"],
+      "@hooks/*": ["./src/hooks/*"],
+      "@types": ["./src/types/index.ts"],
+      "@assets/*": ["./src/assets/*"],
+      "@style/mixins": ["./src/assets/styles/mixins/index.scss"],
+      "@style/utility-classes/*": ["./src/assets/styles/utility-classes/*"],
+      "@style/animations/*": ["./src/assets/styles/animations/*"],
+      "@style/variables": ["./src/assets/styles/variables/index.scss"],
+      "@constants": ["./src/constants/index.ts"],
+      "@router/*": ["./src/router/index.ts"],
       "@/*": ["./src/*"]
     }
   },
