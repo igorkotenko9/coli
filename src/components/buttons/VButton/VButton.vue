@@ -7,12 +7,13 @@
   >
     <span class="v-button__content">
       <VIcon
-        v-if="iconName"
+        v-if="iconName && !isLoading"
         class="v-button__icon"
         :class="iconDynamicClasses"
         :icon-name="iconName"
       />
-      <slot />
+      <slot v-if="!isLoading" />
+      <EasyLoader v-if="isLoading" class="v-button__loader" />
     </span>
   </LinkButton>
 </template>
@@ -24,6 +25,7 @@ import { type ButtonTypes, type LinkButtonModes } from "@components/LinkButton";
 import LinkButton from "@components/LinkButton/LinkButton.vue";
 import VIcon from "@components/VIcon";
 import { type VIconIconsNames } from "@components/VIcon";
+import EasyLoader from "@components/loaders/EasyLoader/EasyLoader.vue";
 
 export type SizeButton = "large" | "middle" | "small";
 export type VariationButton = "accent" | "primary";
@@ -52,6 +54,9 @@ const props = defineProps({
   iconPosition: {
     type: String as PropType<IconPositions>,
     default: "left",
+  },
+  isLoading: {
+    type: Boolean,
   },
   disabled: Boolean,
 });
@@ -170,6 +175,11 @@ const iconDynamicClasses = computed(() => {
     gap: 8px;
     justify-content: center;
     align-items: center;
+  }
+
+  &__loader {
+    width: var(--easy-loader-width, 16px);
+    height: var(--easy-loader-height, 16px);
   }
 
   &__icon {

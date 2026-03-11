@@ -1,5 +1,6 @@
 <template>
   <div class="the-base-page-tech">
+    <PageLoader v-if="isPageLoader" />
     <div class="the-base-page-tech__content">
       <div class="the-base-page-tech__block">
         <div class="the-base-page-tech__section-header">VButton</div>
@@ -18,6 +19,9 @@
               >Отказать</VButton
             >
           </div>
+          <div v-if="isSimpleLoading" class="the-base-page-tech__column">
+            <VButton is-loading variation="primary">Загрузить</VButton>
+          </div>
         </div>
       </div>
     </div>
@@ -25,7 +29,13 @@
 </template>
 
 <script setup lang="ts">
+import { ref } from "vue";
+
 import VButton from "@components/buttons/VButton/VButton.vue";
+import PageLoader from "@components/loaders/PageLoader/PageLoader.vue";
+
+const isPageLoader = ref<boolean>(false);
+const isSimpleLoading = ref<boolean>(false);
 </script>
 
 <style scoped lang="scss">
