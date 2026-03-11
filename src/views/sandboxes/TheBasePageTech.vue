@@ -12,6 +12,12 @@
             <VButton variation="accent">Удалить</VButton>
             <VButton disabled variation="accent">Удалить</VButton>
           </div>
+          <div class="the-base-page-tech__column">
+            <VButton icon-name="checkbox-checked">Принять</VButton>
+            <VButton icon-name="close" icon-position="right" variation="accent"
+              >Отказать</VButton
+            >
+          </div>
         </div>
       </div>
     </div>

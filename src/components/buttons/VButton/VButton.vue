@@ -5,7 +5,15 @@
     :button-type="buttonType"
     :mode="mode"
   >
-    <div class="v-button_content"><slot /></div>
+    <span class="v-button__content">
+      <VIcon
+        v-if="iconName"
+        class="v-button__icon"
+        :class="iconDynamicClasses"
+        :icon-name="iconName"
+      />
+      <slot />
+    </span>
   </LinkButton>
 </template>
 
@@ -14,9 +22,12 @@ import { type PropType, computed } from "vue";
 
 import { type ButtonTypes, type LinkButtonModes } from "@components/LinkButton";
 import LinkButton from "@components/LinkButton/LinkButton.vue";
+import VIcon from "@components/VIcon";
+import { type VIconIconsNames } from "@components/VIcon";
 
 export type SizeButton = "large" | "middle" | "small";
 export type VariationButton = "accent" | "primary";
+export type IconPositions = "left" | "right";
 
 const props = defineProps({
   buttonType: {
@@ -35,6 +46,13 @@ const props = defineProps({
     type: String as PropType<VariationButton>,
     default: "primary",
   },
+  iconName: {
+    type: String as PropType<VIconIconsNames>,
+  },
+  iconPosition: {
+    type: String as PropType<IconPositions>,
+    default: "left",
+  },
   disabled: Boolean,
 });
 
@@ -43,6 +61,13 @@ const rootDynamicClasses = computed(() => {
     props.disabled && "v-button--disabled",
     props.variation && `v-button--${props.variation}`,
     props.size && `v-button--${props.size}`,
+  ].filter(Boolean);
+});
+
+const iconDynamicClasses = computed(() => {
+  return [
+    props.variation && `v-button__icon--${props.variation}`,
+    props.iconPosition && `v-button__icon--${props.iconPosition}`,
   ].filter(Boolean);
 });
 </script>
