@@ -24,6 +24,20 @@
           </div>
         </div>
       </div>
+      <div class="the-base-page-tech__block">
+        <div class="the-base-page-tech__section-header">VIsland</div>
+        <div class="the-base-page-tech__grid">
+          <div class="the-base-page-tech__column">
+            <BaseIsland
+              title="Сегодня выйдет трейлер фильма «Дюна: Часть третья»"
+              ><VButton icon-name="plus">Нравится</VButton
+              ><VButton icon-name="minus" variation="accent"
+                >Не нравится</VButton
+              ></BaseIsland
+            >
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -32,6 +46,7 @@
 import { ref } from "vue";
 
 import VButton from "@components/buttons/VButton/VButton.vue";
+import BaseIsland from "@components/islands/BaseIsland/BaseIsland.vue";
 import PageLoader from "@components/loaders/PageLoader/PageLoader.vue";
 
 const isPageLoader = ref<boolean>(false);
@@ -40,7 +55,7 @@ const isSimpleLoading = ref<boolean>(false);
 
 <style scoped lang="scss">
 .the-base-page-tech {
-  color: var(--app-color-secondary-text);
+  color: var(--app-color-secondary-text-dark);
 
   &__content {
     display: flex;

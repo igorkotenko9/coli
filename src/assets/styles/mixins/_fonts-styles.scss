@@ -17,10 +17,71 @@
   font-weight: 700;
 }
 
+@mixin subtitle-1 {
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 700;
+}
+
+@mixin subtitle-2 {
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
+
+@mixin body-1 {
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+
+@mixin body-2 {
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 500;
+}
+
+@mixin body-regular {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+}
+
+@mixin caption-1 {
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 400;
+}
+
+@mixin caption-2 {
+  font-size: 11px;
+  line-height: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
 @mixin button {
   font-size: 12px;
   line-height: normal;
-  font-weight: 600;
+  font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.3px;
+}
+
+@mixin tab {
+  font-size: 14px;
+  line-height: normal;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
+}
+
+@mixin tabl-subtitle {
+  font-size: 11px;
+  line-height: normal;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.55px;
 }

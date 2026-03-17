@@ -130,7 +130,7 @@ const iconDynamicClasses = computed(() => {
     }
 
     &:active {
-      --icon-color: var(--app-color-secondary-text);
+      --icon-color: var(--app-color-black);
     }
   }
 
@@ -151,7 +151,7 @@ const iconDynamicClasses = computed(() => {
     }
 
     &:active {
-      --icon-color: var(--app-color-secondary-text);
+      --icon-color: var(--app-color-black);
     }
   }
 
