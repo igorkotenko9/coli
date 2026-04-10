@@ -1,11 +1,17 @@
 <template>
   <div class="app">
-    <div id="overlays" class="app_overlays">
-      <div v-if="isLoading">Loading...</div>
-      <template v-else>
-        <RouterView v-slot="{ Component }">
-          <component :is="Component" class="app__page app__item" /> </RouterView
-      ></template>
+    <div id="overlays" class="app__overlays">
+      <TransitionGroup name="app__item-">
+        <VLoader v-if="isLoading" class="app__item app__plug" />
+
+        <template v-else>
+          <div class="app__navbar-wrapper app__menu"><TopNavbar /></div>
+
+          <RouterView v-slot="{ Component }">
+            <component :is="Component" class="app__page app__item" />
+          </RouterView>
+        </template>
+      </TransitionGroup>
     </div>
   </div>
 </template>
@@ -13,6 +19,9 @@
 <script setup lang="ts">
 import { computed, onBeforeMount, ref } from "vue";
 import { RouterView, useRouter } from "vue-router";
+
+import TopNavbar from "@components/TopNavbar/TopNavbar.vue";
+import VLoader from "@components/loaders/VLoader/VLoader.vue";
 
 const router = useRouter();
 
@@ -26,6 +35,8 @@ onBeforeMount(async () => {
 </script>
 
 <style scoped lang="scss">
+@use "@style/variables" as vars;
+
 .app {
   position: relative;
 
@@ -34,14 +45,24 @@ onBeforeMount(async () => {
 
   min-height: 100vh;
 
-  background-color: var(--app-color-background);
+  &__menu {
+    position: sticky;
+    top: 0;
+    z-index: vars.$z-index-page-loader;
+  }
+
+  &__item {
+    padding: 32px;
+  }
 
   &__overlays {
     position: absolute;
     top: 0;
     right: 0;
     left: 0;
-    z-index: 10000;
+    z-index: vars.$z-index-overlay;
+
+    background-color: var(--app-color-background);
   }
 }
 </style>
