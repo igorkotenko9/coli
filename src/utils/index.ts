@@ -1,3 +1,4 @@
+export * as helpers from "./helpers";
 export { propsFactory } from "./propsFactory";
 export * from "./types";
 
