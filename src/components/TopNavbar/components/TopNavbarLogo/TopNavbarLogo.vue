@@ -1,5 +1,5 @@
 <template>
-  <a class="aside-navbar-logo" href="/main">
+  <a class="aside-navbar-logo" href="/">
     <VImage
       class="aside-navbar-logo__icon"
       src="../src/images/icons/logo.png"

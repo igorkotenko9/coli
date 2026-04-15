@@ -17,7 +17,7 @@ const routes = [
     ],
   },
   {
-    path: "/main",
+    path: "/",
     name: "main",
     component: () => import(`../views/TheMainPage.vue`),
   },

@@ -48,7 +48,7 @@ onBeforeMount(async () => {
   &__menu {
     position: sticky;
     top: 0;
-    z-index: vars.$z-index-page-loader;
+    z-index: vars.$z-index-header;
   }
 
   &__item {

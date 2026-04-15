@@ -1,0 +1,61 @@
+/* stylelint-disable property-disallowed-list */
+
+.v-ripple {
+  &__container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+
+    width: 100%;
+    height: 100%;
+
+    color: inherit;
+
+    overflow: hidden;
+    border-radius: inherit;
+
+    pointer-events: none;
+    contain: strict;
+  }
+
+  &__animation {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    color: inherit;
+
+    /* stylelint-disable-next-line declaration-property-value-no-unknown */
+    background: var(
+      --ripple-color,
+      color-mix(in srgb, currentcolor, transparent 10%)
+    );
+    overflow: hidden;
+    border-radius: 50%;
+    opacity: 0;
+
+    pointer-events: none;
+    will-change: transform, opacity;
+
+    &--enter {
+      opacity: 0;
+
+      transition: none;
+    }
+
+    &--in {
+      opacity: 1;
+
+      transition:
+        transform 0.25s cubic-bezier(0, 0, 0.2, 1),
+        opacity 0.1s cubic-bezier(0, 0, 0.2, 1);
+    }
+
+    &--out {
+      opacity: 0;
+
+      transition: opacity 0.3s cubic-bezier(0, 0, 0.2, 1);
+    }
+  }
+}

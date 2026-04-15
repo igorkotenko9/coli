@@ -3,8 +3,8 @@
     <div ref="controlRef" class="v-menu__control">
       <slot name="control" :keydown-handler="controlKeydownHandler" />
     </div>
-    <Teleport to="overlays">
-      <Transition :duration="150" :name="showAnimation"
+    <Teleport to="#overlays">
+      <Transition :duration="10" :name="showAnimation"
         ><div
           v-if="isShowDropdown"
           ref="dropdownRef"
@@ -294,11 +294,12 @@ const dropdownFocusinHandler = (event: FocusEvent) => {
   }
 
   &__dropdown-content-wrapper {
+    --v-menu-background-color: var(--app-color-gray-ultrapale);
     border-width: 1px;
 
     color: var(--app-color-gray-blue);
 
-    background-color: var(--app-color-white);
+    background-color: var(--v-menu-background-color);
     overflow: hidden;
     border-color: var(--app-color-gray-stroke);
     border-radius: 16px;
