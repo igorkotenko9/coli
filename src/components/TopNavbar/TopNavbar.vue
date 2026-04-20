@@ -9,6 +9,9 @@
           v-for="item in navbarData"
           :key="item.id"
           class="top-navbar__menu-item"
+          :class="{
+            'top-navbar__menu-item--no-dropdown': hasEmptyDropdownMenu(item),
+          }"
         >
           <TopNavbarItem
             :text="item.text"
@@ -53,6 +56,10 @@ import TopNavbarItemDropdown from "./components/TopNavbarItemDropdown/TopNavbarI
 import TopNavbarLogo from "./components/TopNavbarLogo/TopNavbarLogo.vue";
 
 defineProps(getProps());
+
+function hasEmptyDropdownMenu(item: NavbarData[0]) {
+  return !item.dropdownItems;
+}
 
 const navbarData = ref<NavbarData>();
 
@@ -129,6 +136,10 @@ getContent();
     align-self: center;
 
     height: fit-content;
+
+    &--no-dropdown {
+      padding-right: 32px;
+    }
   }
 
   box-shadow: 0 0 2px 0 var(--app-color-black);
