@@ -5,12 +5,13 @@
     placement="bottom-end"
     :anchor-element="anchorRef"
     ><template #control>
-      <IconButton
-        ref="anchorRef"
-        class="top-navbar-item-dropdown__activator"
-        :icon-name="currentButtonIcon"
-        @click="fieldMousedownControlHandler"
-      /> </template
+      <div ref="anchorRef" class="top-navbar-item-dropdown__activator-wrapper">
+        <IconButton
+          class="top-navbar-item-dropdown__activator"
+          :icon-name="currentButtonIcon"
+          @click="fieldMousedownControlHandler"
+        />
+      </div> </template
     ><template #dropdown
       ><div class="top-navbar-item-dropdown__menu">
         <div class="top-navbar-item-dropdown__menu-inner">
@@ -67,7 +68,7 @@ defineProps({
 });
 
 const isShowDropdown = shallowRef<boolean>(false);
-const anchorRef = shallowRef<null>();
+const anchorRef = shallowRef<HTMLElement | null>();
 const fieldMousedownControlHandler = () => {
   isShowDropdown.value = !isShowDropdown.value;
 };
@@ -104,27 +105,6 @@ const currentButtonIcon = computed(() =>
     color: var(--app-color-gray-dark);
 
     @include mixins.tab;
-  }
-
-  &__activator-icon {
-    flex-shrink: 0;
-
-    width: 18px;
-    height: 18px;
-    padding: 6px;
-
-    color: inherit;
-
-    transition-property: rotate, color;
-    transition-duration: var(--app-transition-duration-1);
-    transition-timing-function: var(--app-transition-timing-function);
-    rotate: 90deg;
-
-    &--active {
-      rotate: -90deg;
-
-      color: var(--app-color-secondary-dark);
-    }
   }
 
   &__menu {
