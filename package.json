@@ -63,7 +63,9 @@
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.10.4",
     "@stylistic/stylelint-plugin": "^4.0.0",
+    "@types/fs-extra": "^11.0.4",
     "@types/node": "^24.10.1",
+    "@types/svg-sprite": "^0.0.39",
     "@typescript-eslint/eslint-plugin": "^7.16.1",
     "@typescript-eslint/parser": "^7.5.0",
     "@vitejs/plugin-vue": "^6.0.1",

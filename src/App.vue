@@ -1,18 +1,17 @@
 <template>
   <div class="app">
-    <div id="overlays" class="app__overlays">
-      <TransitionGroup name="app__item-">
-        <VLoader v-if="isLoading" class="app__item app__plug" />
+    <TransitionGroup name="app__item-">
+      <VLoader v-if="isLoading" class="app__item app__plug" />
 
-        <template v-else>
-          <div class="app__navbar-wrapper app__menu"><TopNavbar /></div>
+      <template v-else>
+        <div class="app__navbar-wrapper app__menu"><TopNavbar /></div>
 
-          <RouterView v-slot="{ Component }">
-            <component :is="Component" class="app__page app__item" />
-          </RouterView>
-        </template>
-      </TransitionGroup>
-    </div>
+        <RouterView v-slot="{ Component }">
+          <component :is="Component" class="app__page app__item" />
+        </RouterView>
+      </template>
+    </TransitionGroup>
+    <div id="overlays" class="app__overlays" />
   </div>
 </template>
 
@@ -40,8 +39,8 @@ onBeforeMount(async () => {
 .app {
   position: relative;
 
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
+  display: flex;
+  flex-direction: column;
 
   min-height: 100vh;
 

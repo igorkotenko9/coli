@@ -121,7 +121,7 @@ const iconDynamicClasses = computed(() => {
   // * Варианты *
   &--primary {
     --ripple-color: var(--app-color-primary-light);
-    --icon-color: var(--app-color-white);
+    --icon-color: var(--app-color-background);
 
     background-color: var(--app-color-primary-norm);
 
@@ -130,19 +130,19 @@ const iconDynamicClasses = computed(() => {
     }
 
     &:active {
-      --icon-color: var(--app-color-black);
+      --icon-color: var(--app-color-white);
     }
   }
 
   &--primary:is(&--disabled) {
-    --icon-color: var(--app-color-gray-dark);
+    --icon-color: var(--app-color-background);
 
     background-color: var(--app-color-gray-light);
   }
 
   &--accent {
     --ripple-color: var(--app-color-red-light);
-    --icon-color: var(--app-color-white);
+    --icon-color: var(--app-color-background);
 
     background-color: var(--app-color-red-norm);
 
@@ -151,12 +151,12 @@ const iconDynamicClasses = computed(() => {
     }
 
     &:active {
-      --icon-color: var(--app-color-black);
+      --icon-color: var(--app-color-white);
     }
   }
 
   &--accent:is(&--disabled) {
-    --icon-color: var(--app-color-gray-dark);
+    --icon-color: var(--app-color-background);
 
     background-color: var(--app-color-gray-light);
   }

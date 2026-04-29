@@ -1,5 +1,6 @@
 export * as helpers from "./helpers";
 export { propsFactory } from "./propsFactory";
+export * from "./type-guards";
 export * from "./types";
 
 export const keyCodes = Object.freeze({

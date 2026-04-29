@@ -23,10 +23,16 @@
         </div>
       </div>
       <div class="top-navbar__block top-navbar__user">
-        Авторизация/Пользователь
+        <VButton
+          icon-name="person"
+          size="middle"
+          @click="authorizationButtonHandler"
+          >Войти</VButton
+        >
       </div>
     </div>
   </div>
+  <AuthorizationModal v-model:is-open="isOpenAuthorizationModal" />
 </template>
 
 <script lang="ts">
@@ -51,15 +57,24 @@ type NavbarData = {
 <script setup lang="ts">
 import { ref } from "vue";
 
+import VButton from "@components/buttons/VButton/VButton.vue";
+import AuthorizationModal from "@components/modals/AuthorizationModal/AuthorizationModal.vue";
+
 import TopNavbarItem from "./components/TopNavbarItem/TopNavbarItem.vue";
 import TopNavbarItemDropdown from "./components/TopNavbarItemDropdown/TopNavbarItemDropdown.vue";
 import TopNavbarLogo from "./components/TopNavbarLogo/TopNavbarLogo.vue";
 
 defineProps(getProps());
 
+const isOpenAuthorizationModal = ref(false);
+
 function hasEmptyDropdownMenu(item: NavbarData[0]) {
   return !item.dropdownItems;
 }
+
+const authorizationButtonHandler = () => {
+  isOpenAuthorizationModal.value = true;
+};
 
 const navbarData = ref<NavbarData>();
 
@@ -116,6 +131,8 @@ getContent();
 </script>
 
 <style scoped lang="scss">
+@use "@style/mixins" as mixins;
+
 .top-navbar {
   --menu-item-color: var(--app-color-primary-norm);
   background-color: var(--app-color-background);
@@ -139,6 +156,25 @@ getContent();
 
     &--no-dropdown {
       padding-right: 32px;
+    }
+  }
+
+  &__user {
+    @include mixins.body-2;
+
+    display: flex;
+    align-items: center;
+
+    padding-inline: 32px;
+
+    color: var(--menu-item-color);
+
+    &:hover {
+      --menu-item-color: var(--app-color-primary-dark);
+    }
+
+    &:active {
+      --menu-item-color: var(--app-color-primary-light);
     }
   }
 
