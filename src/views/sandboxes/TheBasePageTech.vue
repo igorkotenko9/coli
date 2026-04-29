@@ -35,32 +35,11 @@
             >
           </div>
         </div>
+      </div>
+      <div class="the-base-page-tech__block">
+        <div class="the-base-page-tech__section-header">VTextField</div>
         <div class="the-base-page-tech__grid">
-          <div class="the-base-page-tech__column">
-            <BaseIsland title="Заголовок «Островка»"
-              ><VButton icon-name="plus" size="middle"
-                >Добавить</VButton
-              ></BaseIsland
-            >
-          </div>
-        </div>
-        <div class="the-base-page-tech__grid">
-          <div class="the-base-page-tech__column">
-            <BaseIsland title="Заголовок «Островка»"
-              ><VButton icon-name="plus" size="middle"
-                >Добавить</VButton
-              ></BaseIsland
-            >
-          </div>
-        </div>
-        <div class="the-base-page-tech__grid">
-          <div class="the-base-page-tech__column">
-            <BaseIsland title="Заголовок «Островка»"
-              ><VButton icon-name="plus" size="middle"
-                >Добавить</VButton
-              ></BaseIsland
-            >
-          </div>
+          <div class="the-base-page-tech__column" />
         </div>
       </div>
     </div>

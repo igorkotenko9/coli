@@ -1,0 +1,87 @@
+/* stylelint-disable selector-max-type, property-disallowed-list, selector-max-compound-selectors */
+
+@use "@style/mixins" as mixins;
+
+.v-field {
+  &__input {
+    position: relative;
+
+    display: flex;
+    flex-grow: 1;
+    flex-wrap: wrap;
+    align-items: center;
+
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    min-height: var(--field-control-height, 38px);
+    padding-block: var(--input-padding-top) var(--input-padding-bottom);
+    padding-inline: var(--input-padding-left) var(--input-padding-right);
+
+    color: var(--field-text-color);
+    font-family: inherit;
+    font-size: var(--field-font-size);
+    line-height: var(--field-line-height);
+    font-weight: var(--field-font-weight);
+    text-align: var(--field-text-align);
+    /* stylelint-disable-next-line declaration-property-value-keyword-no-deprecated */
+    word-break: break-word;
+
+    background-color: inherit;
+    outline: none;
+
+    cursor: var(--field-cursor);
+    resize: none;
+
+    input,
+    textarea {
+      flex-grow: 1;
+
+      min-width: 0;
+
+      font: inherit;
+      letter-spacing: inherit;
+
+      background-color: inherit;
+
+      cursor: inherit;
+    }
+
+    &--column {
+      position: static;
+
+      flex-direction: column;
+      justify-content: center;
+
+      min-height: unset;
+      padding-block: 0;
+      padding-inline: 0;
+    }
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: var(--field-placeholder-color);
+    font-size: var(--field-placeholder-size);
+    line-height: 16px;
+    font-weight: var(--field-placeholder-weight);
+    letter-spacing: 0.2px;
+  }
+
+  input:-webkit-autofill,
+  input:autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active,
+  textarea:-webkit-autofill,
+  textarea:autofill,
+  textarea:-webkit-autofill:hover,
+  textarea:-webkit-autofill:focus,
+  textarea:-webkit-autofill:active {
+    font: inherit;
+
+    background: inherit;
+
+    transition: background-color 9999s ease-in-out 0s;
+  }
+}
