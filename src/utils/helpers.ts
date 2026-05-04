@@ -59,6 +59,17 @@ export function focusChild(
   }
 }
 
+export function toKebabCase(str = "") {
+  if (toKebabCase.cache.has(str)) return toKebabCase.cache.get(str)!;
+  const kebab = str
+    .replaceAll(/[^a-z]/gi, "-")
+    .replaceAll(/\B([A-Z])/g, "-$1")
+    .toLowerCase();
+  toKebabCase.cache.set(str, kebab);
+  return kebab;
+}
+toKebabCase.cache = new Map<string, string>();
+
 function lastElement<T>(arr: T[]): T | undefined {
   // eslint-disable-next-line unicorn/prefer-at
   return arr[arr.length - 1];

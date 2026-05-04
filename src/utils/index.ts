@@ -1,3 +1,4 @@
+export { focusInput } from "./focusInput";
 export * as helpers from "./helpers";
 export { propsFactory } from "./propsFactory";
 export * from "./type-guards";
