@@ -37,9 +37,11 @@
         </div>
       </div>
       <div class="the-base-page-tech__block">
-        <div class="the-base-page-tech__section-header">VTextField</div>
+        <div class="the-base-page-tech__section-header">VSwitcher</div>
         <div class="the-base-page-tech__grid">
-          <div class="the-base-page-tech__column" />
+          <div class="the-base-page-tech__column">
+            <VSwitcher text="Переключаем?" />
+          </div>
         </div>
       </div>
     </div>
@@ -49,6 +51,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 
+import VSwitcher from "@components/VSwitcher/VSwitcher.vue";
 import VButton from "@components/buttons/VButton/VButton.vue";
 import BaseIsland from "@components/islands/BaseIsland/BaseIsland.vue";
 import PageLoader from "@components/loaders/PageLoader/PageLoader.vue";

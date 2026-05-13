@@ -3,6 +3,7 @@ export * as helpers from "./helpers";
 export { propsFactory } from "./propsFactory";
 export * from "./type-guards";
 export * from "./types";
+export * as validators from "./validators";
 
 export const keyCodes = Object.freeze({
   enter: 13,

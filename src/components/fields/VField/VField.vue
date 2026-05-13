@@ -273,12 +273,12 @@ const defaultSlotProps = computed<DefaultSlotProps>(() => {
   --field-icons-color: var(--app-color-gray-stroke);
   --field-placeholder-color: var(
     --v-field-placeholder-color,
-    var(--app-color-gray-stroke)
+    var(--app-color-gray-norm)
   );
 
   // typography
-  --field-placeholder-weight: var(--v-field-placeholder-weight, 700);
-  --field-placeholder-size: var(--v-field-placeholder-size, 14px);
+  --field-placeholder-weight: var(--v-field-placeholder-weight, 400);
+  --field-placeholder-size: var(--v-field-placeholder-size, 12px);
   --field-font-size: var(--v-field-font-size, 14px);
   --field-line-height: var(--v-field-line-height, 23px);
   --field-font-weight: var(--v-field-font-weight, 400);
