@@ -1,6 +1,6 @@
 <template>
   <LinkButton
-    class="v-button 2"
+    class="v-button"
     :class="rootDynamicClasses"
     :button-type="buttonType"
     :mode="mode"
