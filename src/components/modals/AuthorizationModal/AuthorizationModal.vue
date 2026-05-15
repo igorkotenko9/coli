@@ -33,20 +33,11 @@
               required
               :placeholder="PLACEHOLDERS.LOGIN"
             />
-            <VTextField
+            <VPasswordField
               v-model="passwordValue"
               class="authorization-modal__input-field"
-              label="Пароль"
               required
-              :placeholder="PLACEHOLDERS.PASSWORD"
-            />
-            <VTextField
-              v-if="isNeedRegistration"
-              v-model="confirmedPasswordValue"
-              class="authorization-modal__input-field"
-              label="Подтверждение пароля"
-              required
-              :placeholder="PLACEHOLDERS.PASSWORD"
+              :need-confirmed="isNeedRegistration"
             />
             <VButton
               class="authorization-modal__submit-button"
@@ -61,7 +52,7 @@
       <VSwitcher
         v-model="isNeedRegistration"
         class="authorization-modal__switcher"
-        text="Зарегистрироваться"
+        text="Регистрация"
       />
     </div>
   </VModal>
@@ -74,6 +65,7 @@ import { PLACEHOLDERS } from "@constants";
 import { propsFactory } from "@utils";
 
 import VEmailField from "@fields/VEmailField/VEmailField.vue";
+import VPasswordField from "@fields/VPasswordField/VPasswordField.vue";
 import VPhoneField from "@fields/VPhoneField/VPhoneField.vue";
 
 export const getProps = propsFactory({
@@ -107,7 +99,6 @@ const proxiedIsOpen = useVModel(props, "isOpen", emit);
 const isNeedRegistration = ref<boolean>(false);
 const loginValue = ref<null | string>(null);
 const passwordValue = ref<null | string>(null);
-const confirmedPasswordValue = ref<null | string>(null);
 const emailValue = ref<null | string>(null);
 const phoneValue = ref<null | string>(null);
 </script>

@@ -30,6 +30,23 @@
       </div>
       <slot v-bind="defaultSlotProps" />
       <div v-if="isAppendInner" key="append" class="v-field__append-inner">
+        <Transition name="v-field__pass-switch-">
+          <div v-show="isShowOpenPassButton" class="v-field__switch-pass">
+            <button
+              class="v-field__switch-pass-button"
+              type="button"
+              @click.prevent.stop="emit('click:switch-pass')"
+            >
+              <VIcon
+                class="v-field__icon v-field__icon--see"
+                :class="{
+                  'v-field__icon--red': error,
+                }"
+                :icon-name="isShowPassword ? 'off-eye' : 'eye'"
+              />
+            </button>
+          </div>
+        </Transition>
         <Transition name="v-field__clearable-">
           <div v-show="isShowClearButton" class="v-field__clearable">
             <button
@@ -84,6 +101,7 @@ export type DefaultSlotProps = SlotsProps & {
 
 export type Emits = {
   "click:clear": [];
+  "click:switch-pass": [];
   "update:focused": [boolean];
 };
 
@@ -96,6 +114,15 @@ export const getProps = propsFactory(
     clearable: {
       type: Boolean,
       default: true,
+    },
+    passSwitchButton: {
+      type: Boolean,
+      default: false,
+    },
+    isShowPassword: {
+      type: Boolean,
+      default: false,
+      required: false,
     },
     dirty: Boolean,
     error: Boolean,
@@ -152,6 +179,10 @@ const isLoading = computed<boolean>(() => props.loading);
 
 const isShowClearButton = computed<boolean>(
   () => props.dirty && props.clearable && !isDisabled.value,
+);
+
+const isShowOpenPassButton = computed<boolean>(
+  () => props.passSwitchButton && !isDisabled.value,
 );
 
 const isPrependInner = computed<boolean>(
@@ -428,6 +459,31 @@ const defaultSlotProps = computed<DefaultSlotProps>(() => {
     place-content: center;
   }
 
+  &__switch-pass {
+    display: grid;
+    flex-shrink: 0;
+    place-content: center;
+
+    max-width: 24px;
+
+    overflow: hidden;
+
+    transition-property: width, opacity, transform, max-width, translate;
+    transition-duration: var(--app-transition-duration-1);
+    transition-timing-function: var(--app-transition-timing-function);
+
+    &--enter-from,
+    &--leave-to {
+      opacity: 0;
+      translate: 50%;
+    }
+  }
+
+  &__switch-pass-button {
+    display: grid;
+    place-content: center;
+  }
+
   &__icon {
     display: grid;
     flex-shrink: 0;
@@ -439,6 +495,12 @@ const defaultSlotProps = computed<DefaultSlotProps>(() => {
     color: inherit;
 
     &--clear {
+      padding: 4px;
+
+      color: var(--app-color-secondary-norm, inherit);
+    }
+
+    &--see {
       padding: 4px;
 
       color: var(--app-color-secondary-norm, inherit);

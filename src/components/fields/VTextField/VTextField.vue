@@ -21,6 +21,7 @@
         :error="isErrored"
         @click="fieldClickHandler"
         @click:clear="fieldClickClearHandler"
+        @click:switch-pass="fieldClickSwitchPassHandler"
         @mousedown="fieldContainerMousedownHandler"
       >
         <template #prepend-inner="vFieldSlotsProps">
@@ -369,6 +370,10 @@ const fieldClickClearHandler = () => {
   proxiedModel.value = null;
   localWarnings.value = null;
   emit("click:clear");
+};
+
+const fieldClickSwitchPassHandler = () => {
+  emit("click:switch-pass");
 };
 
 const maskOptions = computed<MaskInputOptions | null>(() => {
