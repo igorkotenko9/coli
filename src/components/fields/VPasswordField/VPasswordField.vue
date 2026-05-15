@@ -18,6 +18,7 @@
       @focus:input="inputFocusHandler"
     />
     <VTextField
+      v-bind="props"
       v-if="needConfirmed"
       v-model="confirmedValue"
       v-model:external-errors="proxiedMatchError"

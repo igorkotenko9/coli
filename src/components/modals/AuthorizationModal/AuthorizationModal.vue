@@ -3,7 +3,8 @@
     v-model:is-open="proxiedIsOpen"
     :title="isNeedRegistration ? 'Регистрация' : 'Авторизация'"
   >
-    <div v-if="!isShowMessage" class="authorization-modal__wrapper">
+    <VLoader v-if="isLoading" />
+    <div v-else-if="!isShowMessage" class="authorization-modal__wrapper">
       <VForm class="authorization-modal__form">
         <template #default="{ isErrored }">
           <TransitionGroup
@@ -73,6 +74,7 @@ import { type ExtractPropTypes } from "vue";
 import { PLACEHOLDERS } from "@constants";
 import { propsFactory } from "@utils";
 
+import VLoader from "@components/loaders/VLoader/VLoader.vue";
 import VEmailField from "@fields/VEmailField/VEmailField.vue";
 import VPasswordField from "@fields/VPasswordField/VPasswordField.vue";
 import VPhoneField from "@fields/VPhoneField/VPhoneField.vue";
@@ -87,7 +89,7 @@ export type Props = ExtractPropTypes<ReturnType<typeof getProps>>;
 </script>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, watch } from "vue";
 
 import { useVModel } from "@vueuse/core";
 
@@ -115,6 +117,15 @@ const loginValue = ref<null | string>(null);
 const passwordValue = ref<null | string>(null);
 const emailValue = ref<null | string>(null);
 const phoneValue = ref<null | string>(null);
+
+const clearFields = () => {
+  isNeedRegistration.value = false;
+  loginValue.value = null;
+  passwordValue.value = null;
+  emailValue.value = null;
+  phoneValue.value = null;
+  isShowMessage.value = false;
+};
 
 const submitButtonHandler = () => {
   if (isNeedRegistration.value) {
@@ -167,6 +178,12 @@ const submitReg = async () => {
     isShowMessage.value = true;
   }
 };
+
+watch(proxiedIsOpen, (newValue, oldValue) => {
+  if (oldValue === true && newValue === false) {
+    clearFields();
+  }
+});
 </script>
 
 <style scoped lang="scss">
