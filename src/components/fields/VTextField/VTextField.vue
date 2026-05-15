@@ -7,6 +7,7 @@
     class="v-text-field"
     :focused="isFocusedProxy"
     :label="label"
+    :tooltip="tooltip"
     :warnings="localWarnings"
     :is-tooltip-messages="isTooltipMessages"
     @change:is-errored="vInputChangeIsErroredHandler"

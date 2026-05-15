@@ -6,8 +6,12 @@
       class="v-password-field"
       label="Пароль"
       pass-switch-button
+      tooltip="Пароль должен содержать минимум 8 символов. Допускается ввод латиницы, цифр и спецсимволов"
+      tooltip-button-icon="question-mark"
+      :pattern="PATTERNS.PASSWORD"
       :placeholder="PLACEHOLDERS.PASSWORD"
       :type="isShowPass ? 'text' : 'password'"
+      :validations="localValidations"
       :is-show-password="isShowPass"
       @blur:input="inputBlurHandler"
       @click:switch-pass="inputSwitchPassHandler"
@@ -21,6 +25,7 @@
       clearable
       label="Подтверждение пароля"
       pass-switch-button
+      :pattern="PATTERNS.PASSWORD"
       :placeholder="PLACEHOLDERS.PASSWORD"
       :type="isShowConfirm ? 'text' : 'password'"
       :is-show-password="isShowConfirm"
@@ -56,7 +61,9 @@ import { computed, ref } from "vue";
 
 import { useVModel } from "@vueuse/core";
 
-import { PLACEHOLDERS } from "@constants";
+import { PATTERNS, PLACEHOLDERS } from "@constants";
+import { useValidations } from "@hooks/useValidations";
+import { validators } from "@utils";
 
 import VTextField from "@fields/VTextField/VTextField.vue";
 
@@ -66,6 +73,10 @@ const emit = defineEmits<VTextFieldEmits>();
 
 const proxiedModel = useVModel(props, "modelValue", emit, {
   eventName: "update:model-value",
+});
+
+const localValidations = useValidations(props, {
+  checkPassword: validators.password,
 });
 
 const isShowPass = ref<boolean>(false);

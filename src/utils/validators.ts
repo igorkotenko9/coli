@@ -186,6 +186,22 @@ export const dateValidate = (
 
 export const email = helpers.withMessage("Введите корректный email", emailBase);
 
+export const password = helpers.withMessage(
+  "Пароль должен содержать минимум 9 символов и как минимум один спецсимвол",
+  (value: string) => {
+    if (!helpers.req(value)) return true;
+
+    // Минимум 9 символов
+    const hasMinLength = value.length >= 9;
+
+    // Как минимум один спецсимвол (не буква и не цифра)
+    // eslint-disable-next-line no-useless-escape
+    const hasSpecialChar = /[!"#$%&'()*+,./:;<=>?@[\\\]^_{|}\-]/.test(value);
+
+    return hasMinLength && hasSpecialChar;
+  },
+);
+
 export const checkEmailSymbols = helpers.withMessage(
   "Разрешен ввод цифр 0-9, символов латинского алфавита A-Z, a-z, и спец. символов",
   (value: string) => {

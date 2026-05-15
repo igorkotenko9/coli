@@ -25,6 +25,18 @@
           </slot>
         </template>
       </VLabel>
+      <HelpTooltip
+        v-if="isShowTooltip"
+        class="v-input__tooltip"
+        :errored="hasErrors"
+        :icon-name="tooltipButtonIcon"
+        :style-content="{ maxWidth: '255px', padding: '5px' }"
+        @click.stop.prevent
+      >
+        <template #content>
+          <VHtmlText v-if="tooltip" :text="tooltip" />
+        </template>
+      </HelpTooltip>
     </div>
 
     <div ref="controlRef" class="v-input__control">
@@ -79,6 +91,7 @@ import {
 } from "@vuelidate/core";
 import { pick } from "lodash";
 
+import { type IconsIds } from "@/generated/icons";
 import { propsFactory } from "@utils";
 
 import { type VIconIconsNames } from "@components/VIcon";
@@ -131,6 +144,7 @@ export const getProps = propsFactory({
   prependIcon: String as PropType<VIconIconsNames>,
   // tooltip
   tooltip: String as PropType<null | string>,
+  tooltipButtonIcon: String as PropType<IconsIds>,
   showTooltip: {
     type: Boolean,
     default: true,
@@ -161,7 +175,9 @@ import { helpers, requiredIf } from "@vuelidate/validators";
 import { getUid } from "@hooks/getCurrentInstance";
 import { useSlotFullness } from "@hooks/useSlotFullness";
 
+import HelpTooltip from "@components/HelpTooltip";
 import InputMessages from "@components/InputMessages";
+import VHtmlText from "@components/VHtmlText";
 import VIcon from "@components/VIcon";
 import VLabel from "@components/fields/VLabel";
 

@@ -1,10 +1,9 @@
 <template>
   <VModal
     v-model:is-open="proxiedIsOpen"
-    class="authorization-modal"
     :title="isNeedRegistration ? 'Регистрация' : 'Авторизация'"
   >
-    <div class="authorization-modal__wrapper">
+    <div v-if="!isShowMessage" class="authorization-modal__wrapper">
       <VForm class="authorization-modal__form">
         <template #default="{ isErrored }">
           <TransitionGroup
@@ -14,6 +13,7 @@
           >
             <VEmailField
               v-if="isNeedRegistration"
+              key="email"
               v-model="emailValue"
               class="authorization-modal__input-field"
               label="Адрес электронной почты"
@@ -21,12 +21,14 @@
             />
             <VPhoneField
               v-if="isNeedRegistration"
+              key="phone"
               v-model="phoneValue"
               class="authorization-modal__input-field"
               label="Номер телефона"
               required
             />
             <VTextField
+              key="login"
               v-model="loginValue"
               class="authorization-modal__input-field"
               label="Логин"
@@ -34,14 +36,17 @@
               :placeholder="PLACEHOLDERS.LOGIN"
             />
             <VPasswordField
+              key="password"
               v-model="passwordValue"
               class="authorization-modal__input-field"
               required
               :need-confirmed="isNeedRegistration"
             />
             <VButton
+              key="submit-button"
               class="authorization-modal__submit-button"
               :disabled="isErrored"
+              @click="submitButtonHandler"
               >{{
                 isNeedRegistration ? "Зарегистрироваться" : "Войти"
               }}</VButton
@@ -54,6 +59,10 @@
         class="authorization-modal__switcher"
         text="Регистрация"
       />
+    </div>
+    <div v-else>
+      На почту {{ emailValue }} вам было отправлено письмо с дальнейшими
+      инструкциями по регистрации.
     </div>
   </VModal>
 </template>
@@ -82,6 +91,8 @@ import { ref } from "vue";
 
 import { useVModel } from "@vueuse/core";
 
+import { useAxios } from "@hooks/useAxios";
+
 import VForm from "@components/VForm";
 import VSwitcher from "@components/VSwitcher/VSwitcher.vue";
 import VButton from "@components/buttons/VButton";
@@ -94,13 +105,68 @@ const emit = defineEmits<{
   "update:isOpen": [data: boolean];
 }>();
 
+const isLoading = ref<boolean>(false);
+
 const proxiedIsOpen = useVModel(props, "isOpen", emit);
+const isShowMessage = ref<boolean>(false);
 
 const isNeedRegistration = ref<boolean>(false);
 const loginValue = ref<null | string>(null);
 const passwordValue = ref<null | string>(null);
 const emailValue = ref<null | string>(null);
 const phoneValue = ref<null | string>(null);
+
+const submitButtonHandler = () => {
+  if (isNeedRegistration.value) {
+    submitReg();
+  } else {
+    submitAuth();
+  }
+};
+
+const submitAuth = async () => {
+  try {
+    isLoading.value = true;
+
+    const { execute } = useAxios("/submitauth", {
+      method: "POST",
+    });
+
+    await execute({
+      data: {
+        login: loginValue.value,
+        password: passwordValue.value,
+      },
+    });
+
+    // emit("update");
+    proxiedIsOpen.value = false;
+  } finally {
+    isLoading.value = false;
+  }
+};
+
+const submitReg = async () => {
+  try {
+    isLoading.value = true;
+
+    const { execute } = useAxios("/submitreg", {
+      method: "POST",
+    });
+
+    await execute({
+      data: {
+        email: emailValue.value,
+        phone: phoneValue.value,
+        login: loginValue.value,
+        password: passwordValue.value,
+      },
+    });
+  } finally {
+    isLoading.value = false;
+    isShowMessage.value = true;
+  }
+};
 </script>
 
 <style scoped lang="scss">
