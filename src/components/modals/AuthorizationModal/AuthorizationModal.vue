@@ -34,6 +34,7 @@
               class="authorization-modal__input-field"
               label="Логин"
               required
+              :pattern="PATTERNS.LOGIN"
               :placeholder="PLACEHOLDERS.LOGIN"
             />
             <VPasswordField
@@ -71,7 +72,7 @@
 <script lang="ts">
 import { type ExtractPropTypes } from "vue";
 
-import { PLACEHOLDERS } from "@constants";
+import { PATTERNS, PLACEHOLDERS } from "@constants";
 import { propsFactory } from "@utils";
 
 import VLoader from "@components/loaders/VLoader/VLoader.vue";
