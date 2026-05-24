@@ -1,6 +1,12 @@
 <template>
   <div class="v-switcher" @click="toggleSwitch">
-    <div class="v-switcher__button">
+    <div
+      class="v-switcher__button"
+      :class="{
+        'v-switcher__button--true': modelValue,
+        'v-switcher__button--false': !modelValue,
+      }"
+    >
       <div
         class="v-switcher__indicator"
         :class="{
@@ -61,9 +67,19 @@ const toggleSwitch = () => {
     width: 30px;
     height: 15px;
 
-    background-color: var(--app-color-gray-pale);
+    background-color: var(--switcher-background-color);
     border-radius: 16px;
-    box-shadow: 0 0 0 1px var(--app-color-primary-norm);
+    box-shadow: 0 0 0 1px var(--switcher-border-color);
+
+    &--true {
+      --switcher-background-color: var(--app-color-green-pale);
+      --switcher-border-color: var(--app-color-green-stroke);
+    }
+
+    &--false {
+      --switcher-background-color: var(--app-color-red-pale);
+      --switcher-border-color: var(--app-color-red-stroke);
+    }
   }
 
   &__indicator {
@@ -74,7 +90,7 @@ const toggleSwitch = () => {
     width: 50%;
     height: 100%;
 
-    background-color: var(--app-color-gray-norm);
+    background-color: var(--app-color-brown-norm);
     border-radius: 50%;
 
     transition:
@@ -82,12 +98,16 @@ const toggleSwitch = () => {
       background-color 0.2s ease;
 
     &--true {
+      --switcher-background-color: var(--app-color-green-pale);
+
       background-color: var(--app-color-green-light);
 
       transform: translateX(100%);
     }
 
     &--false {
+      --switcher-background-color: var(--app-color-red-pale);
+
       background-color: var(--app-color-red-light);
 
       transform: translateX(0);

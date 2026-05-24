@@ -88,37 +88,37 @@ const iconVariationClass = computed(
     width: var(--icon-size);
     height: var(--icon-size);
 
-    color: var(--icon-color, var(--app-color-gray-light));
+    color: var(--icon-color, var(--app-color-brown-light));
   }
 
   &--primary {
-    --icon-color: var(--app-color-secondary-dark);
+    --icon-color: var(--app-color-primary-norm);
 
     &:hover {
-      --icon-color: var(--app-color-secondary-text);
+      --icon-color: var(--app-color-primary-light);
 
-      background-color: var(--app-color-gray-pale);
+      background-color: var(--app-color-primary-dark);
     }
 
     &:active {
       --icon-color: var(--app-color-primary-dark);
 
-      background-color: var(--app-color-secondary-light);
+      background-color: var(--app-color-primary-light);
     }
 
     &:disabled {
-      --icon-color: var(--app-color-gray-light);
+      --icon-color: var(--app-color-brown-light);
     }
   }
 
   &--simplified {
-    --icon-color: var(--app-color-gray-norm);
+    --icon-color: var(--app-color-brow-norm);
   }
 
   &--active {
-    --icon-color: var(--app-color-primary-dark);
+    --icon-color: var(--app-color-primary-light);
 
-    background-color: var(--app-color-secondary-light);
+    background-color: var(--app-color-secondary-norm);
   }
 
   &--circle {
@@ -127,7 +127,7 @@ const iconVariationClass = computed(
     &:hover {
       --icon-color: var(--app-color-secondary-text);
 
-      background-color: var(--app-color-gray-pale);
+      background-color: var(--app-color-brown-pale);
     }
 
     &:active {
@@ -137,7 +137,7 @@ const iconVariationClass = computed(
     }
 
     &:disabled {
-      --icon-color: var(--app-color-gray-light);
+      --icon-color: var(--app-color-brown-light);
     }
   }
 }

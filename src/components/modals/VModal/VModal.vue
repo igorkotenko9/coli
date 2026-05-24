@@ -7,6 +7,7 @@
             class="v-modal-window__content"
             :style="styleContent"
             :is-loading="isLoading"
+            :island-color="islandColor"
           >
             <IslandBox class="v-modal-window__box">
               <div class="v-modal-window__header" :class="headerClass">
@@ -86,6 +87,9 @@ export const getProps = propsFactory({
     type: String as PropType<HeaderAlignType>,
     default: "left",
   },
+  islandColor: {
+    type: String as PropType<VIslandColor>,
+  },
 });
 
 export type Props = ExtractPropTypes<ReturnType<typeof getProps>>;
@@ -100,7 +104,7 @@ import VTitle from "@components/VTitle";
 import VTransition from "@components/animations/VTransition";
 import IconButton from "@components/buttons/IconButton";
 import IslandBox from "@components/islands/IslandBox";
-import VIsland from "@components/islands/VIsland";
+import VIsland, { type VIslandColor } from "@components/islands/VIsland";
 
 const props = defineProps({ ...getProps() });
 
@@ -185,7 +189,7 @@ function backdropClickHandler() {
     max-width: 700px;
     border-width: 1px;
 
-    border-color: var(--app-color-gray-stroke);
+    border-color: var(--app-color-primary-norm);
     border-style: solid;
   }
 
@@ -208,7 +212,7 @@ function backdropClickHandler() {
   }
 
   &__title {
-    color: var(--app-color-secondary-text);
+    color: var(--app-color-primary-norm);
     word-break: normal;
     overflow-wrap: break-word;
   }

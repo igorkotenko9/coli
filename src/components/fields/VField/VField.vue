@@ -229,7 +229,7 @@ const defaultSlotProps = computed<DefaultSlotProps>(() => {
   --field-border-width: var(--v-field-border-width, 1px);
   --field-border-color: var(
     --v-field-border-color,
-    var(--app-color-gray-stroke)
+    var(--app-color-brown-stroke)
   );
   --field-hover-border-color: var(
     --v-field-hover-border-color,
@@ -295,16 +295,16 @@ const defaultSlotProps = computed<DefaultSlotProps>(() => {
   --field-cursor: var(--v-field-cursor, text);
 
   // colors
-  --field-text-color: var(--v-field-text-color, var(--app-color-gray-blue));
+  --field-text-color: var(--v-field-text-color, var(--app-color-brown-red));
   --field-background-color: var(
     --v-field-background-color,
     var(--app-color-white)
   );
   --field-active-background-color: var(--v-field-active-background-color);
-  --field-icons-color: var(--app-color-gray-stroke);
+  --field-icons-color: var(--field-text-color);
   --field-placeholder-color: var(
     --v-field-placeholder-color,
-    var(--app-color-gray-norm)
+    var(--app-color-brown-norm)
   );
 
   // typography
@@ -335,18 +335,15 @@ const defaultSlotProps = computed<DefaultSlotProps>(() => {
   @include mixins.body-1;
 
   @include mixins.hover {
-    --field-icons-color: var(--app-color-secondary-norm);
     --field-border-color: var(--field-hover-border-color);
   }
 
   &--focused {
-    --field-icons-color: var(--field-active-border-color);
     --field-border-color: var(--field-active-border-color);
     --field-background-color: var(--field-active-background-color);
     --field-cursor: text;
 
     @include mixins.hover {
-      --field-icons-color: var(--field-active-border-color);
       --field-border-color: var(--field-active-border-color);
       --field-background-color: var(--field-active-background-color);
     }
@@ -364,35 +361,33 @@ const defaultSlotProps = computed<DefaultSlotProps>(() => {
   }
 
   &--readonly {
-    --field-border-color: var(--app-color-gray-light);
+    --field-border-color: var(--app-color-brown-light);
     --field-background-color: #f0f2fa;
 
     @include mixins.hover {
-      --field-border-color: var(--app-color-gray-light);
+      --field-border-color: var(--app-color-brown-light);
       --field-background-color: #f0f2fa;
     }
   }
 
   &--disabled {
     --field-cursor: not-allowed;
-    --field-border-color: var(--app-color-gray-light);
-    --field-background-color: var(--app-color-gray-pale);
+    --field-border-color: var(--app-color-brown-light);
+    --field-background-color: var(--app-color-brown-pale);
 
     pointer-events: none;
 
     @include mixins.hover {
-      --field-border-color: var(--app-color-gray-light);
-      --field-background-color: var(--app-color-gray-pale);
+      --field-border-color: var(--app-color-brown-light);
+      --field-background-color: var(--app-color-brown-pale);
     }
   }
 
   &--errored {
     --field-border-color: var(--app-color-red-norm);
-    --field-icons-color: var(--app-color-red-norm);
 
     @include mixins.hover {
       --field-border-color: var(--app-color-red-norm);
-      --field-icons-color: var(--app-color-red-norm);
     }
   }
 
@@ -496,18 +491,21 @@ const defaultSlotProps = computed<DefaultSlotProps>(() => {
 
     &--clear {
       padding: 4px;
-
-      color: var(--app-color-secondary-norm, inherit);
     }
 
     &--see {
       padding: 4px;
-
-      color: var(--app-color-secondary-norm, inherit);
     }
 
     &--loader {
       color: inherit;
+    }
+  }
+
+  &__switch-pass-button,
+  &__clear-button {
+    &:hover {
+      color: var(--v-field-border-color);
     }
   }
 }

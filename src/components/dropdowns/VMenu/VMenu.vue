@@ -294,14 +294,14 @@ const dropdownFocusinHandler = (event: FocusEvent) => {
   }
 
   &__dropdown-content-wrapper {
-    --v-menu-background-color: var(--app-color-gray-ultrapale);
+    --v-menu-background-color: var(--app-color-brown-ultrapale);
     border-width: 1px;
 
-    color: var(--app-color-gray-blue);
+    color: var(--app-color-primary-norm);
 
     background-color: var(--v-menu-background-color);
     overflow: hidden;
-    border-color: var(--app-color-gray-stroke);
+    border-color: var(--app-color-primary-norm);
     border-radius: 16px;
     box-shadow: var(--app-shadow-soft);
 

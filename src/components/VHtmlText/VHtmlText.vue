@@ -20,4 +20,10 @@ export type Props = ExtractPublicPropTypes<ReturnType<typeof getProps>>;
 defineProps(getProps());
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.v-html-text {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+</style>

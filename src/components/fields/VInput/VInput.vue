@@ -413,7 +413,7 @@ defineExpose({
     width: 24px;
     height: 24px;
 
-    color: var(--app-color-gray-blue);
+    color: var(--app-color-brown-red);
   }
 
   &__messages {

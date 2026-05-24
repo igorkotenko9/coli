@@ -83,7 +83,7 @@ const iconDynamicClasses = computed(() => {
 .v-button {
   --icon-width: 16px;
   --icon-height: 16px;
-  --current-color: var(--icon-color, var(--app-color-gray-light));
+  --current-color: var(--icon-color, var(--app-color-background));
 
   display: flex;
   gap: 8px;
@@ -131,13 +131,14 @@ const iconDynamicClasses = computed(() => {
 
     &:active {
       --icon-color: var(--app-color-white);
+      background-color: var(--app-color-primary-light);
     }
   }
 
   &--primary:is(&--disabled) {
-    --icon-color: var(--app-color-background);
+    --icon-color: var(--app-color-background-dark);
 
-    background-color: var(--app-color-gray-light);
+    background-color: var(--app-color-brown-light);
   }
 
   &--accent {
@@ -156,9 +157,9 @@ const iconDynamicClasses = computed(() => {
   }
 
   &--accent:is(&--disabled) {
-    --icon-color: var(--app-color-background);
+    --icon-color: var(--app-color-background-dark);
 
-    background-color: var(--app-color-gray-light);
+    background-color: var(--app-color-brown-light);
   }
 
   // * Общие стили субсостояний *

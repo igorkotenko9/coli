@@ -42,8 +42,6 @@ defineProps(getProps());
   width: max-content;
   max-width: 100%;
 
-  color: var(--app-color-gray-blue);
-
   overflow: hidden;
 
   @include mixins.body-1;

@@ -80,10 +80,10 @@ const sizeClass = computed(
 .help-tooltip {
   --icon-sign-color: var(--app-color-white);
   --icon-sign-hover-color: var(--app-color-white);
-  --icon-sign-active-color: var(--app-color-secondary-dark);
-  --icon-background-color: var(--app-color-secondary-dark);
-  --icon-background-hover-color: var(--app-color-secondary-text);
-  --icon-background-active-color: var(--app-color-gray-pale);
+  --icon-sign-active-color: var(--app-color-primary-dark);
+  --icon-background-color: var(--app-color-primary-norm);
+  --icon-background-hover-color: var(--app-color-primary-dark);
+  --icon-background-active-color: var(--app-color-white);
   --icon-border-width: 1px;
   --icon-border-color: var(--icon-background-color);
   --icon-border-hover-color: var(--icon-background-hover-color);
@@ -128,7 +128,7 @@ const sizeClass = computed(
       --icon-sign-active-color: var(--app-color-red-norm);
       --icon-background-color: var(--app-color-red-norm);
       --icon-background-hover-color: var(--app-color-red-dark);
-      --icon-background-active-color: var(--app-color-red-pale);
+      --icon-background-active-color: var(--app-color-red-stroke);
       --icon-border-color: var(--icon-background-color);
       --icon-border-hover-color: var(--icon-background-hover-color);
       --icon-border-active-color: var(--icon-sign-active-color);

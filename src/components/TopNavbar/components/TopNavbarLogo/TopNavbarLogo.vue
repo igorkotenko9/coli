@@ -2,7 +2,7 @@
   <a class="aside-navbar-logo" href="/">
     <VImage
       class="aside-navbar-logo__icon"
-      src="../src/images/icons/logo.png"
+      src="../src/images/icons/icon.png"
     />
     <Transition name="aside-navbar-logo__text-">
       <div v-if="isShowText" class="aside-navbar-logo__text">
@@ -32,15 +32,17 @@ defineProps({
   padding-block: 12px;
   padding-inline: 18px;
 
-  background-color: var(--menu-item-color);
-  box-shadow: 1px 0 1px 0 var(--app-color-black);
+  background-color: var(--app-color-primary-norm);
+  box-shadow: 0 0 1px 0 var(--app-color-black);
 
   @include mixins.subtitle-1;
 
   &__icon {
+    --v-image-object-fit: center;
+
     flex-shrink: 0;
 
-    width: 100px;
+    width: 50px;
     height: 50px;
   }
 
@@ -62,6 +64,14 @@ defineProps({
       opacity: 0;
       translate: 0 10% 0;
     }
+  }
+
+  &:hover {
+    background-color: var(--app-color-primary-dark);
+  }
+
+  &:active {
+    background-color: var(--app-color-primary-light);
   }
 }
 </style>

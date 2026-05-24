@@ -18,7 +18,7 @@ import VLoader from "../VLoader/VLoader.vue";
   width: 100%;
   height: 100%;
 
-  background-color: var(--app-color-gray-blue);
+  background-color: var(--app-color-brown-red);
   opacity: 0.7;
 }
 </style>

@@ -74,6 +74,7 @@ const loaderColorClass = computed(
   z-index: vars.$z-index-loader;
 
   display: flex;
+  flex-grow: 1;
   justify-content: center;
   align-items: center;
 

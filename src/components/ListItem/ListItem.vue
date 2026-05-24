@@ -90,7 +90,7 @@ defineExpose({
 .list-item {
   --item-padding-block: var(--list-item-padding-block, 6px);
   --item-padding-inline: var(--list-item-padding-inline, 11px);
-  --ripple-color: var(--app-color-gray-pale);
+  --ripple-color: var(--app-color-brown-pale);
 
   position: relative;
 

@@ -10,6 +10,6 @@ import VTitle from "@components/VTitle";
 
 <style scoped lang="scss">
 .island-title {
-  color: var(--app-color-secondary-text-dark);
+  color: var(--app-color-brown-stroke);
 }
 </style>

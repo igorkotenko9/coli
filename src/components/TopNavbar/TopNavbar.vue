@@ -135,7 +135,7 @@ getContent();
 
 .top-navbar {
   --menu-item-color: var(--app-color-primary-norm);
-  background-color: var(--app-color-background);
+  background-color: var(--app-color-background-dark);
 
   &__content {
     display: flex;
@@ -178,6 +178,6 @@ getContent();
     }
   }
 
-  box-shadow: 0 0 2px 0 var(--app-color-black);
+  box-shadow: 0 0 6px 0 var(--app-color-brown-light);
 }
 </style>

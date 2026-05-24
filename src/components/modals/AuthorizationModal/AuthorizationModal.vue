@@ -1,6 +1,7 @@
 <template>
   <VModal
     v-model:is-open="proxiedIsOpen"
+    island-color="pale"
     :title="isNeedRegistration ? 'Регистрация' : 'Авторизация'"
   >
     <VLoader v-if="isLoading" />
@@ -62,9 +63,9 @@
         text="Регистрация"
       />
     </div>
-    <div v-else>
-      На почту {{ emailValue }} вам было отправлено письмо с дальнейшими
-      инструкциями по регистрации.
+    <div v-else class="authorization-modal__success-reg">
+      На почту <a href="mail.ru">{{ emailValue }}</a> вам было отправлено письмо
+      с дальнейшими инструкциями по регистрации.
     </div>
   </VModal>
 </template>
@@ -188,6 +189,8 @@ watch(proxiedIsOpen, (newValue, oldValue) => {
 </script>
 
 <style scoped lang="scss">
+@use "@style/mixins" as mixins;
+
 .authorization-modal {
   &__wrapper {
     display: flex;
@@ -207,6 +210,26 @@ watch(proxiedIsOpen, (newValue, oldValue) => {
     display: flex;
     flex-direction: column;
     gap: 16px;
+  }
+
+  &__input-field {
+    --text-field-color: var(--app-color-secondary-text);
+    --text-field-border-color: var(--app-color-primary-norm);
+    --text-field-hover-border-color: var(--app-color-primary-dark);
+    --text-field-active-border-color: var(--app-color-primary-light);
+    --text-field-active-background-color: var(--app-color-white);
+    --text-field-placeholder-color: var(--app-color-primary-light);
+    color: var(--app-color-primary-norm);
+  }
+
+  &__switcher {
+    color: var(--app-color-brown-dark);
+  }
+
+  &__success-reg {
+    @include mixins.subtitle-2;
+
+    color: var(--app-color-primary-norm);
   }
 }
 

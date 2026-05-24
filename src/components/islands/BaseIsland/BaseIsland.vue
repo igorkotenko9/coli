@@ -10,8 +10,10 @@
           <slot name="header-content" />
         </div>
       </div>
-
-      <slot />
+      <div class="base-island__main-content">
+        <slot name="main-image" />
+        <slot />
+      </div>
     </IslandBox>
   </VIsland>
 </template>
@@ -39,6 +41,11 @@ defineProps({
     gap: 24px;
     justify-content: space-between;
     align-items: center;
+  }
+
+  &__main-content {
+    display: flex;
+    gap: 24px;
   }
 }
 </style>

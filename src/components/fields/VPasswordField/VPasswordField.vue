@@ -129,6 +129,13 @@ const proxiedMatchError = computed(() => {
 
 <style scoped lang="scss">
 .v-password-field {
+  --text-field-color: inherit;
+  --text-field-border-color: inherit;
+  --text-field-hover-border-color: inherit;
+  --text-field-active-border-color: inherit;
+  --text-field-active-background-color: inherit;
+  --text-field-placeholder-color: inherit;
+
   &__wrapper {
     display: flex;
     flex-direction: column;

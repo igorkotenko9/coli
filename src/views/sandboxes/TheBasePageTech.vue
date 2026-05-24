@@ -11,7 +11,9 @@
           </div>
           <div class="the-base-page-tech__column">
             <VButton variation="accent">Удалить</VButton>
-            <VButton disabled variation="accent">Удалить</VButton>
+            <VButton disabled icon-name="close" variation="accent"
+              >Удалить</VButton
+            >
           </div>
           <div class="the-base-page-tech__column">
             <VButton icon-name="checkbox-checked">Принять</VButton>
@@ -62,7 +64,7 @@ const isSimpleLoading = ref<boolean>(false);
 
 <style scoped lang="scss">
 .the-base-page-tech {
-  color: var(--app-color-secondary-text-dark);
+  color: var(--app-color-secondary-text);
 
   &__content {
     display: flex;

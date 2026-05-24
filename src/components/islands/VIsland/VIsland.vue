@@ -1,5 +1,5 @@
 <template>
-  <div class="v-island">
+  <div class="v-island" :class="islandColorClass">
     <slot />
 
     <VLoader
@@ -12,32 +12,44 @@
 </template>
 
 <script lang="ts">
-import { type ExtractPropTypes } from "vue";
+import { type ExtractPropTypes, type PropType } from "vue";
 
 import { propsFactory } from "@utils";
 
-export const getProps = propsFactory({
-  isLoading: {
-    type: Boolean,
-  },
-});
+export const getProps = propsFactory({});
 export type Props = ExtractPropTypes<ReturnType<typeof getProps>>;
 </script>
 
 <script setup lang="ts">
+import { computed } from "vue";
+
 import VLoader from "@components/loaders/VLoader";
 
-defineProps(getProps());
+export type IslandColor = "beige" | "blue" | "pale";
+
+const props = defineProps({
+  isLoading: {
+    type: Boolean,
+  },
+  islandColor: {
+    type: String as PropType<IslandColor>,
+    default: "beige",
+  },
+});
+
+const islandColorClass = computed(() => `v-island--${props.islandColor}`);
 </script>
 
 <style scoped lang="scss">
 @use "@style/mixins" as mixins;
 
 .v-island {
-  --island-shadow-color: var(--app-color-gray-pale);
+  --island-shadow-color: var(--app-color-brown-pale);
   position: relative;
 
-  background-color: var(--app-color-gray-ultrapale);
+  color: var(--app-color-brown-black);
+
+  background-color: var(--island-background-color);
   overflow: clip;
   border-radius: var(--v-island-border-radius, 16px);
   box-shadow: var(--island-shadow-color);
@@ -47,6 +59,18 @@ defineProps(getProps());
     inset: 0;
 
     border-radius: 16px;
+  }
+
+  &--beige {
+    --island-background-color: var(--app-color-background-dark);
+  }
+
+  &--pale {
+    --island-background-color: var(--app-color-background);
+  }
+
+  &--blue {
+    --island-background-color: var(--app-color-primary-light);
   }
 }
 </style>

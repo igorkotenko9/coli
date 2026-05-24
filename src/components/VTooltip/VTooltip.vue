@@ -226,7 +226,7 @@ const sizeClass = computed(
     max-width: 300px;
     padding: 10px;
 
-    color: var(--app-color-gray-blue);
+    color: var(--app-color-secondary-text);
     text-wrap: pretty;
     overflow-wrap: anywhere;
 
@@ -273,7 +273,15 @@ const sizeClass = computed(
     height: var(--icon-close-size);
     padding: 2px;
 
-    color: var(--app-color-secondary-dark);
+    color: var(--app-color-primary-norm);
+
+    &:hover {
+      color: var(--app-color-primary-dark);
+    }
+
+    &:active {
+      color: var(--app-color-primary-light);
+    }
 
     cursor: pointer;
   }

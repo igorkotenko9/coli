@@ -82,14 +82,14 @@ const currentButtonIcon = computed(() =>
 @use "@style/mixins" as mixins;
 
 .top-navbar-item-dropdown {
-  --v-menu-background-color: var(--app-color-gray-pale);
+  --v-menu-background-color: var(--app-color-brown-pale);
   display: flex;
   align-items: center;
 
   min-width: max-content;
   height: 100%;
 
-  color: var(--app-color-gray-dark);
+  color: var(--app-color-primary-norm);
 
   overflow: hidden;
 
@@ -102,7 +102,7 @@ const currentButtonIcon = computed(() =>
 
     height: 100%;
 
-    color: var(--app-color-gray-dark);
+    color: var(--app-color-primary-norm);
 
     @include mixins.tab;
   }
@@ -120,6 +120,10 @@ const currentButtonIcon = computed(() =>
     --list-item-padding-inline: 20px;
 
     @include mixins.body-1;
+
+    &:hover {
+      color: var(--app-color-primary-dark);
+    }
   }
 }
 </style>
