@@ -46,6 +46,32 @@
           </div>
         </div>
       </div>
+      <div class="the-base-page-tech__block">
+        <div class="the-base-page-tech__section-header">
+          ImageBackgroundIsland
+        </div>
+        <div class="the-base-page-tech__grid">
+          <div class="the-base-page-tech__column">
+            <ImageBackgroundIsland />
+          </div>
+        </div>
+      </div>
+      <div class="the-base-page-tech__block">
+        <div class="the-base-page-tech__section-header">VContentBadge</div>
+        <div class="the-base-page-tech__grid">
+          <div class="the-base-page-tech__column">
+            <VContentBadge icon-name="arrow" text="текст" />
+            <VContentBadge
+              icon-name="arrow"
+              icon-position="left"
+              text="текст"
+              variation="brown"
+            />
+            <VContentBadge icon-name="arrow" text="текст" variation="red" />
+            <VContentBadge icon-name="arrow" text="текст" variation="green" />
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -53,9 +79,11 @@
 <script setup lang="ts">
 import { ref } from "vue";
 
+import VContentBadge from "@components/VContentBadge/VContentBadge.vue";
 import VSwitcher from "@components/VSwitcher/VSwitcher.vue";
 import VButton from "@components/buttons/VButton/VButton.vue";
 import BaseIsland from "@components/islands/BaseIsland/BaseIsland.vue";
+import ImageBackgroundIsland from "@components/islands/ImageBackgroundIsland/ImageBackgroundIsland.vue";
 import PageLoader from "@components/loaders/PageLoader/PageLoader.vue";
 
 const isPageLoader = ref<boolean>(false);

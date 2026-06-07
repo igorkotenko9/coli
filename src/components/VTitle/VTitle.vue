@@ -10,7 +10,14 @@ import { type ExtractPropTypes, type PropType } from "vue";
 import { propsFactory } from "@utils";
 
 export type Tags = "div" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "span";
-export type Variations = "body1" | "h1" | "h2" | "h3" | "subtitle-1";
+export type Variations =
+  | "body1"
+  | "h1"
+  | "h2"
+  | "h3"
+  | "subtitle-1"
+  | "subtitle-3"
+  | "tabl-subtitle";
 
 export const getVTitleProps = propsFactory({
   tag: {
@@ -64,6 +71,14 @@ const additionalClasses = computed<object>(() => {
 
   &--subtitle-1 {
     @include mixins.subtitle-1;
+  }
+
+  &--subtitle-3 {
+    @include mixins.subtitle-3;
+  }
+
+  &--tabl-subtitle {
+    @include mixins.tabl-subtitle;
   }
 }
 </style>

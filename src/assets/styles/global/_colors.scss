@@ -2,51 +2,87 @@
 :root {
   // Base
   --app-color-white: #fff;
+  --app-color-white-rgb: 255, 255, 255;
   --app-color-black: #121212;
+  --app-color-black-rgb: 18, 18, 18;
   --app-color-background: #eceae6;
+  --app-color-background-rgb: 236, 234, 230;
   --app-color-background-dark: #d6cec3;
+  --app-color-background-dark-rgb: 214, 206, 195;
 
   // Primary
   --app-color-primary-norm: #4f6b97;
+  --app-color-primary-norm-rgb: 79, 107, 151;
   --app-color-primary-dark: #293850;
+  --app-color-primary-dark-rgb: 41, 56, 80;
   --app-color-primary-light: #829fce;
+  --app-color-primary-light-rgb: 130, 159, 206;
   --app-color-primary-pale: #424750;
+  --app-color-primary-pale-rgb: 66, 71, 80;
 
   // Secondary
   --app-color-secondary-norm: #000c26;
+  --app-color-secondary-norm-rgb: 0, 12, 38;
   --app-color-secondary-dark: #00081a;
+  --app-color-secondary-dark-rgb: 0, 8, 26;
   --app-color-secondary-light: #011b55;
+  --app-color-secondary-light-rgb: 1, 27, 85;
   --app-color-secondary-text: #000613;
+  --app-color-secondary-text-rgb: 0, 6, 19;
 
   // Brown
   --app-color-brown-black-deep: #0a0909;
+  --app-color-brown-black-deep-rgb: 10, 9, 9;
   --app-color-brown-black: #141312;
+  --app-color-brown-black-rgb: 20, 19, 18;
   --app-color-brown-dark: #201614;
+  --app-color-brown-dark-rgb: 32, 22, 20;
   --app-color-brown-medium: #352320;
+  --app-color-brown-medium-rgb: 53, 35, 32;
   --app-color-brown-red: #572f28;
+  --app-color-brown-red-rgb: 87, 47, 40;
   --app-color-brown-norm: #402824;
+  --app-color-brown-norm-rgb: 64, 40, 36;
   --app-color-brown-light: #696968;
+  --app-color-brown-light-rgb: 105, 105, 104;
   --app-color-brown-stroke: #2e1e1b;
+  --app-color-brown-stroke-rgb: 46, 30, 27;
   --app-color-brown-pale: #c7c2c1;
+  --app-color-brown-pale-rgb: 199, 194, 193;
   --app-color-brown-ultrapale: #ece9e8;
+  --app-color-brown-ultrapale-rgb: 236, 233, 232;
 
   // Red
   --app-color-red-norm: #b53b3b;
+  --app-color-red-norm-rgb: 181, 59, 59;
   --app-color-red-dark: #8b2a2a;
+  --app-color-red-dark-rgb: 139, 42, 42;
   --app-color-red-light: #d65c5c;
+  --app-color-red-light-rgb: 214, 92, 92;
   --app-color-red-stroke: #4a2a2a;
+  --app-color-red-stroke-rgb: 74, 42, 42;
   --app-color-red-pale: #f3d0d0;
+  --app-color-red-pale-rgb: 243, 208, 208;
 
   // Green
   --app-color-green-dark: #2a6b2a;
+  --app-color-green-dark-rgb: 42, 107, 42;
   --app-color-green-norm: #3d8b3d;
+  --app-color-green-norm-rgb: 61, 139, 61;
   --app-color-green-light: #6ba36b;
+  --app-color-green-light-rgb: 107, 163, 107;
   --app-color-green-stroke: #1e3a1e;
+  --app-color-green-stroke-rgb: 30, 58, 30;
   --app-color-green-pale: #c4f0c4;
+  --app-color-green-pale-rgb: 196, 240, 196;
 
   // Yellow
   --app-color-yellow-dark: #997322;
+  --app-color-yellow-dark-rgb: 153, 115, 34;
   --app-color-yellow-norm: #d4a74f;
+  --app-color-yellow-norm-rgb: 212, 167, 79;
   --app-color-yellow-light: #e6c180;
+  --app-color-yellow-light-rgb: 230, 193, 128;
   --app-color-yellow-pale: #3a321a;
+  --app-color-yellow-pale-rgb: 58, 50, 26;
 }

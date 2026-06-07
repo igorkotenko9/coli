@@ -30,6 +30,12 @@
   letter-spacing: 0.3px;
 }
 
+@mixin subtitle-3 {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+}
+
 @mixin body-1 {
   font-size: 14px;
   line-height: 16px;
