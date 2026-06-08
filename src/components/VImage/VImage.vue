@@ -2,10 +2,10 @@
   <component :is="currentRootTag" class="v-image">
     <slot>
       <source
-        v-for="(sourse, i) in sourses"
+        v-for="(source, i) in sources"
         :key="i"
         v-bind="
-          getSourceAttributes(sourse.srcset, sourse.fileExtension, sourse.media)
+          getSourceAttributes(source.srcset, source.fileExtension, source.media)
         "
       />
     </slot>
@@ -38,7 +38,7 @@ export const getVImageProps = () => ({
     required: false,
   },
   isLazy: { type: Boolean, required: false, default: true },
-  sourses: {
+  sources: {
     type: Array as PropType<VImagePropsSourse[]>,
     required: false,
   },
@@ -70,7 +70,7 @@ const isfilledDefaultSlot = computed<boolean>(() => Boolean(slots.default));
 type CurrentRootTag = "div" | "picture";
 
 const currentRootTag = computed<CurrentRootTag>(() =>
-  isfilledDefaultSlot.value || props.sourses ? "picture" : "div",
+  isfilledDefaultSlot.value || props.sources ? "picture" : "div",
 );
 
 const imagePath = computed(() => {

@@ -60,6 +60,8 @@ const props = defineProps(getProps());
 </script>
 
 <style scoped lang="scss">
+@use "@style/mixins" as mixins;
+
 .general-news {
   display: flex;
   flex-direction: column;
@@ -73,6 +75,11 @@ const props = defineProps(getProps());
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 12px;
+
+    @include mixins.xl-max {
+      display: flex;
+      flex-direction: column;
+    }
   }
 
   &__items {
@@ -90,6 +97,7 @@ const props = defineProps(getProps());
   &__item {
     &--primary {
       display: flex;
+      flex-grow: 1;
     }
 
     &--compact {
