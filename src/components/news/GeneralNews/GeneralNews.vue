@@ -15,18 +15,20 @@
           />
         </template>
       </div>
-      <div class="general-news__items general-news__items--compact">
-        <template v-for="item in props.generalNewsData" :key="item.id">
-          <PrimaryGeneralNews
-            v-if="!item.main"
-            class="general-news__item general-news__item--compact"
-            :image-link="item.image"
-            :link="item.link"
-            :title="item.title"
-            :type="item.type"
-          />
-        </template>
-      </div>
+      <CustomScrollbarWithButtons always>
+        <div class="general-news__items general-news__items--compact">
+          <template v-for="item in props.generalNewsData" :key="item.id">
+            <PrimaryGeneralNews
+              v-if="!item.main"
+              class="general-news__item general-news__item--compact"
+              :image-link="item.image"
+              :link="item.link"
+              :title="item.title"
+              :type="item.type"
+            />
+          </template>
+        </div>
+      </CustomScrollbarWithButtons>
     </div>
   </div>
 </template>
@@ -37,6 +39,7 @@ import { type ExtractPropTypes, type PropType } from "vue";
 import { propsFactory } from "@utils";
 
 import VTitle from "@components/VTitle/VTitle.vue";
+import CustomScrollbarWithButtons from "@components/scroll/CustomScrollbarWithButtons/CustomScrollbarWithButtons.vue";
 
 import PrimaryGeneralNews from "../PrimaryGeneralNews/PrimaryGeneralNews.vue";
 
@@ -91,6 +94,10 @@ const props = defineProps(getProps());
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 12px;
+
+      @include mixins.xl-max {
+        display: flex;
+      }
     }
   }
 
@@ -98,6 +105,8 @@ const props = defineProps(getProps());
     &--primary {
       display: flex;
       flex-grow: 1;
+
+      min-height: 300px;
     }
 
     &--compact {
@@ -105,6 +114,11 @@ const props = defineProps(getProps());
 
       min-width: 100%;
       min-height: 200px;
+
+      @include mixins.xl-max {
+        min-width: 300px;
+        max-width: 300px;
+      }
     }
   }
 }
