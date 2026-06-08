@@ -35,6 +35,8 @@ defineProps({
   background-color: var(--app-color-primary-norm);
   box-shadow: 0 0 1px 0 var(--app-color-black);
 
+  transition-duration: 0.5s;
+
   @include mixins.subtitle-1;
 
   &__icon {

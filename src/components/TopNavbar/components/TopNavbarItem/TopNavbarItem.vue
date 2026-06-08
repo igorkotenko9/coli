@@ -34,6 +34,8 @@ const props = defineProps(getProps());
 
   color: var(--menu-item-color);
 
+  transition-duration: 0.2s;
+
   @include mixins.body-1;
 
   &:hover {

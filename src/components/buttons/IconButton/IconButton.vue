@@ -82,6 +82,8 @@ const iconVariationClass = computed(
 
   border-radius: 4px;
 
+  transition-duration: 0.5s;
+
   &__icon {
     display: var(--icon-display);
 

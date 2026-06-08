@@ -96,7 +96,7 @@ const iconDynamicClasses = computed(() => {
   border-radius: 6px;
 
   transition-property: all;
-  transition-duration: 0.2s;
+  transition-duration: 0.5s;
 
   cursor: pointer;
 

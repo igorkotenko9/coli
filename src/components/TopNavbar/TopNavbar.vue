@@ -3,25 +3,22 @@
     <div class="top-navbar__content">
       <div class="top-navbar__block top-navbar__logo">
         <TopNavbarLogo class="top-navbar__logo-image" />
+        <IconButton
+          class="top-navbar__mobile-menu-button"
+          icon-name="linear-list"
+          :is-active="isShowMobileMenu"
+          @click="mobileMenuButtonHandler"
+        />
       </div>
+
       <div class="top-navbar__block top-navbar__menu">
-        <div
-          v-for="item in navbarData"
-          :key="item.id"
+        <TopNavbarMenu
           class="top-navbar__menu-item"
-          :class="{
-            'top-navbar__menu-item--no-dropdown': hasEmptyDropdownMenu(item),
-          }"
-        >
-          <TopNavbarItem
-            :text="item.text"
-            :to="item.to"
-          /><TopNavbarItemDropdown
-            v-if="item.dropdownItems"
-            :items="item.dropdownItems"
-          />
-        </div>
+          :is-show-mobile-menu="isShowMobileMenu"
+          :navbar-menu-data="navbarData"
+        />
       </div>
+
       <div class="top-navbar__block top-navbar__user">
         <VButton
           icon-name="person"
@@ -41,12 +38,15 @@ import { type ExtractPropTypes } from "vue";
 import { useAxios } from "@hooks/useAxios";
 import { propsFactory } from "@utils";
 
+import IconButton from "@components/buttons/IconButton/IconButton.vue";
+
 import { type TopNavbarItemDropdownMenuItem } from "./components/TopNavbarItemDropdown";
+import TopNavbarMenu from "./components/TopNavbarMenu/TopNavbarMenu.vue";
 
 export const getProps = propsFactory({});
 export type Props = ExtractPropTypes<ReturnType<typeof getProps>>;
 
-type NavbarData = {
+export type NavbarData = {
   dropdownItems?: TopNavbarItemDropdownMenuItem[];
   id: string;
   text: string;
@@ -60,20 +60,19 @@ import { ref } from "vue";
 import VButton from "@components/buttons/VButton/VButton.vue";
 import AuthorizationModal from "@components/modals/AuthorizationModal/AuthorizationModal.vue";
 
-import TopNavbarItem from "./components/TopNavbarItem/TopNavbarItem.vue";
-import TopNavbarItemDropdown from "./components/TopNavbarItemDropdown/TopNavbarItemDropdown.vue";
 import TopNavbarLogo from "./components/TopNavbarLogo/TopNavbarLogo.vue";
 
 defineProps(getProps());
 
-const isOpenAuthorizationModal = ref(false);
-
-function hasEmptyDropdownMenu(item: NavbarData[0]) {
-  return !item.dropdownItems;
-}
+const isOpenAuthorizationModal = ref<boolean>(false);
+const isShowMobileMenu = ref<boolean>(false);
 
 const authorizationButtonHandler = () => {
   isOpenAuthorizationModal.value = true;
+};
+
+const mobileMenuButtonHandler = () => {
+  isShowMobileMenu.value = !isShowMobileMenu.value;
 };
 
 const navbarData = ref<NavbarData>();
@@ -94,9 +93,8 @@ const navbarTestData = [
     text: "Кино",
     to: "/films",
     dropdownItems: [
-      { id: "31", text: "Топ-250", to: "/films/bestfilms" },
-      { id: "32", text: "Сейчас в кино", to: "/films/afisha" },
-      { id: "33", text: "Новости кино", to: "/films/news" },
+      { id: "31", text: "Топ-100", to: "/films/bestsfilms" },
+      { id: "31", text: "Форумы", to: "/films/forums" },
     ],
   },
   {
@@ -104,9 +102,26 @@ const navbarTestData = [
     text: "Сериалы",
     to: "/serials",
     dropdownItems: [
-      { id: "41", text: "Топ-250", to: "/films/bestserials" },
-      { id: "41", text: "Новинки недели", to: "/films/bestfilms" },
-      { id: "41", text: "Новости сериалов", to: "/films/bestfilms" },
+      { id: "41", text: "Топ-100", to: "/serials/bestsserials" },
+      { id: "41", text: "Форумы", to: "/serials/forums" },
+    ],
+  },
+  {
+    id: "5",
+    text: "Литертура",
+    to: "/literature",
+    dropdownItems: [
+      { id: "51", text: "Топ-100", to: "/literature/bestlit" },
+      { id: "51", text: "Форумы", to: "/literature/forums" },
+    ],
+  },
+  {
+    id: "6",
+    text: "Игры",
+    to: "/games",
+    dropdownItems: [
+      { id: "61", text: "Топ-100", to: "/games/bestgames" },
+      { id: "61", text: "Форумы", to: "/games/forums" },
     ],
   },
 ];
@@ -137,25 +152,26 @@ getContent();
   --menu-item-color: var(--app-color-primary-norm);
   background-color: var(--app-color-background-dark);
 
+  &__logo {
+    display: flex;
+    gap: 8px;
+  }
+
   &__content {
     display: flex;
     justify-content: space-between;
   }
 
-  &__menu {
-    display: flex;
-    gap: 48px;
-  }
-
-  &__menu-item {
-    display: flex;
-    gap: 8px;
+  &__mobile-menu-button {
+    justify-content: center;
+    align-items: center;
     align-self: center;
 
-    height: fit-content;
+    width: 50px;
+    height: 50px;
 
-    &--no-dropdown {
-      padding-right: 32px;
+    @include mixins.lg-min {
+      display: none;
     }
   }
 

@@ -31,8 +31,6 @@ import VIcon from "@components/VIcon";
   transition-duration: var(--app-transition-duration-1);
 
   @include mixins.hover {
-    color: var(--app-color-secondary-text);
-
     background-color: var(--app-color-primary-dark);
   }
 
