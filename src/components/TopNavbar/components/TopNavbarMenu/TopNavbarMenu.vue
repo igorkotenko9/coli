@@ -14,24 +14,27 @@
       />
     </div>
   </div>
-  <div v-else class="top-navbar-menu__mobile-menu">
-    <div
-      v-for="itemMobile in props.navbarMenuData"
-      :key="itemMobile.id"
-      class="top-navbar-menu__mobile-item"
-      :class="{
-        'top-navbar__menu-item--no-dropdown': hasEmptyDropdownMenu(itemMobile),
-      }"
-    >
-      <TopNavbarItem
-        :text="itemMobile.text"
-        :to="itemMobile.to"
-      /><TopNavbarItemDropdown
-        v-if="itemMobile.dropdownItems"
-        :items="itemMobile.dropdownItems"
-      />
+  <Transition name="slide-mobile">
+    <div v-if="props.isShowMobileMenu" class="top-navbar-menu__mobile-menu">
+      <div
+        v-for="itemMobile in props.navbarMenuData"
+        :key="itemMobile.id"
+        class="top-navbar-menu__mobile-item"
+        :class="{
+          'top-navbar__menu-item--no-dropdown':
+            hasEmptyDropdownMenu(itemMobile),
+        }"
+      >
+        <TopNavbarItem
+          :text="itemMobile.text"
+          :to="itemMobile.to"
+        /><TopNavbarItemDropdown
+          v-if="itemMobile.dropdownItems"
+          :items="itemMobile.dropdownItems"
+        />
+      </div>
     </div>
-  </div>
+  </Transition>
 </template>
 
 <script lang="ts">
@@ -125,5 +128,20 @@ watch(
   &__mobile-item {
     display: flex;
   }
+}
+
+.slide-mobile-enter-active,
+.slide-mobile-leave-active {
+  transition: transform 0.3s ease-out;
+}
+
+.slide-mobile-enter-from,
+.slide-mobile-leave-to {
+  transform: translateX(-100%);
+}
+
+.slide-mobile-enter-to,
+.slide-mobile-leave-from {
+  transform: translateX(0);
 }
 </style>
