@@ -1,7 +1,7 @@
 <template>
   <div class="top-navbar">
     <div class="top-navbar__content">
-      <div class="top-navbar__block top-navbar__logo">
+      <div class="top-navbar__block top-navbar__left">
         <TopNavbarLogo class="top-navbar__logo-image" />
         <IconButton
           class="top-navbar__mobile-menu-button"
@@ -11,7 +11,7 @@
         />
       </div>
 
-      <div class="top-navbar__block top-navbar__menu">
+      <div class="top-navbar__block top-navbar__center">
         <TopNavbarMenu
           class="top-navbar__menu-item"
           :is-show-mobile-menu="isShowMobileMenu"
@@ -19,7 +19,12 @@
         />
       </div>
 
-      <div class="top-navbar__block top-navbar__user">
+      <div class="top-navbar__block top-navbar__right">
+        <IconButton
+          icon-name="magnifier-input"
+          :is-active="isShowSearch"
+          @click="showSearchFieldButtonHandler"
+        />
         <VButton
           icon-name="person"
           size="middle"
@@ -28,6 +33,12 @@
         >
       </div>
     </div>
+
+    <Transition>
+      <div v-if="isShowSearch" class="top-navbar__search">
+        <VTextField class="top-navbar__search-field" />
+      </div>
+    </Transition>
   </div>
   <AuthorizationModal v-model:is-open="isOpenAuthorizationModal" />
 </template>
@@ -39,6 +50,7 @@ import { useAxios } from "@hooks/useAxios";
 import { propsFactory } from "@utils";
 
 import IconButton from "@components/buttons/IconButton/IconButton.vue";
+import VTextField from "@fields/VTextField/VTextField.vue";
 
 import { type TopNavbarItemDropdownMenuItem } from "./components/TopNavbarItemDropdown";
 import TopNavbarMenu from "./components/TopNavbarMenu/TopNavbarMenu.vue";
@@ -66,6 +78,7 @@ defineProps(getProps());
 
 const isOpenAuthorizationModal = ref<boolean>(false);
 const isShowMobileMenu = ref<boolean>(false);
+const isShowSearch = ref<boolean>(false);
 
 const authorizationButtonHandler = () => {
   isOpenAuthorizationModal.value = true;
@@ -142,6 +155,10 @@ const getContent = async () => {
   }
 };
 
+const showSearchFieldButtonHandler = () => {
+  isShowSearch.value = !isShowSearch.value;
+};
+
 getContent();
 </script>
 
@@ -152,7 +169,7 @@ getContent();
   --menu-item-color: var(--app-color-primary-norm);
   background-color: var(--app-color-background-dark);
 
-  &__logo {
+  &__left {
     display: flex;
     gap: 8px;
   }
@@ -175,25 +192,42 @@ getContent();
     }
   }
 
-  &__user {
-    @include mixins.body-2;
-
+  &__right {
     display: flex;
+    gap: 12px;
     align-items: center;
 
     padding-inline: 32px;
+  }
 
-    color: var(--menu-item-color);
+  &__search {
+    position: absolute;
 
-    &:hover {
-      --menu-item-color: var(--app-color-primary-dark);
-    }
+    display: flex;
+    justify-content: center;
 
-    &:active {
-      --menu-item-color: var(--app-color-primary-light);
-    }
+    width: 100%;
+    padding: 16px;
+
+    background-color: var(--app-color-background-dark);
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 6px 6px -6px var(--app-color-brown-light);
   }
 
   box-shadow: 0 0 6px 0 var(--app-color-brown-light);
+}
+
+.v-enter-active,
+.v-leave-active {
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
+
+  transform: translateY(-10px);
 }
 </style>

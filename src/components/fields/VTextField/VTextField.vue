@@ -583,9 +583,7 @@ defineExpose({
     --v-field-text-align: var(--text-field-input-alignment);
     --v-field-border-radius: var(--text-field-border-radius);
     --v-field-transition-property: var(--text-field-transition-property);
-    --v-field-active-background-color: var(
-      --text-field-active-background-color
-    );
+    --v-field-active-background-color: var(--app-color-white);
     --v-field-border-color: var(--text-field-border-color);
     --v-field-hover-border-color: var(--text-field-hover-border-color);
     --v-field-text-color: var(--text-field-color);
