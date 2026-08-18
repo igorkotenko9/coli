@@ -30,6 +30,17 @@
         </div>
       </CustomScrollbarWithButtons>
     </div>
+    <VButton
+      class="general-news__show-more-button"
+      icon-name="arrow-rude-tail"
+      icon-position="right"
+      mode="link"
+      size="small"
+      url="/news"
+      variation="supporting"
+      >Больше новостей</VButton
+    >
+    <div class="general-news__divider" />
   </div>
 </template>
 
@@ -39,6 +50,7 @@ import { type ExtractPropTypes, type PropType } from "vue";
 import { propsFactory } from "@utils";
 
 import VTitle from "@components/VTitle/VTitle.vue";
+import VButton from "@components/buttons/VButton/VButton.vue";
 import CustomScrollbarWithButtons from "@components/scroll/CustomScrollbarWithButtons/CustomScrollbarWithButtons.vue";
 
 import PrimaryGeneralNews from "../PrimaryGeneralNews/PrimaryGeneralNews.vue";
@@ -71,7 +83,7 @@ const props = defineProps(getProps());
   gap: 12px;
 
   &__title {
-    color: var(--app-color-brown-norm);
+    color: var(--app-color-primary-norm);
   }
 
   &__items-block {
@@ -120,6 +132,28 @@ const props = defineProps(getProps());
         max-width: 300px;
       }
     }
+  }
+
+  &__show-more-button {
+    align-self: center;
+
+    width: max-content;
+  }
+
+  &__divider {
+    width: 100%;
+    height: 2px;
+    margin: 8px 0 16px;
+
+    background-image: linear-gradient(
+      to right,
+      transparent 0%,
+      var(--app-color-primary-norm) 10%,
+      var(--app-color-primary-norm) 90%,
+      transparent 100%
+    );
+    border-radius: 1px;
+    opacity: 0.9;
   }
 }
 </style>

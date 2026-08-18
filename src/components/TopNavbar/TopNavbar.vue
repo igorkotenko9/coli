@@ -101,43 +101,25 @@ const navbarTestData = [
   },
   {
     id: "2",
-    text: "Статьи",
-    to: "/press",
+    text: "Раздел 2",
+    to: "/section2",
   },
   {
     id: "3",
-    text: "Кино",
-    to: "/films",
+    text: "Раздел 3",
+    to: "/section3",
     dropdownItems: [
-      { id: "31", text: "Топ-100", to: "/films/bestsfilms" },
-      { id: "31", text: "Форумы", to: "/films/forums" },
+      { id: "31", text: "Раздел 3.1", to: "/section3/section3-1" },
+      { id: "32", text: "Раздел 3.2", to: "/section3/section3-2" },
     ],
   },
   {
     id: "4",
-    text: "Сериалы",
-    to: "/serials",
+    text: "Раздел 4",
+    to: "/section4",
     dropdownItems: [
-      { id: "41", text: "Топ-100", to: "/serials/bestsserials" },
-      { id: "41", text: "Форумы", to: "/serials/forums" },
-    ],
-  },
-  {
-    id: "5",
-    text: "Литертура",
-    to: "/literature",
-    dropdownItems: [
-      { id: "51", text: "Топ-100", to: "/literature/bestlit" },
-      { id: "51", text: "Форумы", to: "/literature/forums" },
-    ],
-  },
-  {
-    id: "6",
-    text: "Игры",
-    to: "/games",
-    dropdownItems: [
-      { id: "61", text: "Топ-100", to: "/games/bestgames" },
-      { id: "61", text: "Форумы", to: "/games/forums" },
+      { id: "41", text: "Раздел 4.1", to: "/section4/section4-1" },
+      { id: "42", text: "Раздел 4.2", to: "/section4/section4-2" },
     ],
   },
 ];

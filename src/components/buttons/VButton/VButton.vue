@@ -28,7 +28,7 @@ import { type VIconIconsNames } from "@components/VIcon";
 import EasyLoader from "@components/loaders/EasyLoader/EasyLoader.vue";
 
 export type SizeButton = "large" | "middle" | "small";
-export type VariationButton = "accent" | "primary";
+export type VariationButton = "accent" | "primary" | "supporting";
 export type IconPositions = "left" | "right";
 
 const props = defineProps({
@@ -160,6 +160,28 @@ const iconDynamicClasses = computed(() => {
     --icon-color: var(--app-color-background-dark);
 
     background-color: var(--app-color-brown-light);
+  }
+
+  &--supporting {
+    --ripple-color: var(--app-color-brown-light);
+    --icon-color: var(--app-color-background);
+
+    background-color: var(--app-color-brown-norm);
+
+    &:hover {
+      background-color: var(--app-color-brown-dark);
+    }
+
+    &:active {
+      --icon-color: var(--app-color-white);
+      background-color: var(--app-color-brown-light);
+    }
+  }
+
+  &--supporting:is(&--disabled) {
+    --icon-color: var(--app-color-background-dark);
+
+    background-color: var(--app-color-brown-pale);
   }
 
   // * Общие стили субсостояний *
