@@ -21,6 +21,16 @@ const routes = [
     name: "main",
     component: () => import(`../views/TheMainPage.vue`),
   },
+  {
+    path: "/access-denied",
+    name: "403",
+    component: () => import(`../views/The403.vue`),
+  },
+  {
+    path: "/:pathMatch(.*)*",
+    name: "404",
+    component: () => import(`../views/The404.vue`),
+  },
 ];
 
 const router = createRouter({
