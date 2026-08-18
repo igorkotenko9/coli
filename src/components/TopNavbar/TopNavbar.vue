@@ -37,6 +37,9 @@
     <Transition>
       <div v-if="isShowSearch" class="top-navbar__search">
         <VTextField class="top-navbar__search-field" />
+        <VButton class="top-navbar__search-button" icon-name="magnifier"
+          >Найти</VButton
+        >
       </div>
     </Transition>
   </div>
@@ -204,14 +207,20 @@ getContent();
     position: absolute;
 
     display: flex;
+    gap: 8px;
     justify-content: center;
 
     width: 100%;
-    padding: 16px;
+    padding-block: 16px;
+    padding-inline: 96px;
 
     background-color: var(--app-color-background-dark);
     border-radius: 0 0 8px 8px;
     box-shadow: 0 6px 6px -6px var(--app-color-brown-light);
+  }
+
+  &__search-field {
+    width: 100%;
   }
 
   box-shadow: 0 0 6px 0 var(--app-color-brown-light);
