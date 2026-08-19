@@ -22,6 +22,16 @@ const routes = [
     component: () => import(`../views/TheMainPage.vue`),
   },
   {
+    path: "/news",
+    name: "news",
+    component: () => import(`../views/news/TheNewsListPage.vue`),
+  },
+  {
+    path: "/colib",
+    name: "colib",
+    component: () => import(`../views/colib/TheColibPage.vue`),
+  },
+  {
     path: "/access-denied",
     name: "403",
     component: () => import(`../views/The403.vue`),

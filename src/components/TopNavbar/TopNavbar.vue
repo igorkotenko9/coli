@@ -21,6 +21,7 @@
 
       <div class="top-navbar__block top-navbar__right">
         <IconButton
+          class="top-navbar__search-button"
           icon-name="magnifier-input"
           :is-active="isShowSearch"
           @click="showSearchFieldButtonHandler"
@@ -96,22 +97,18 @@ const navbarData = ref<NavbarData>();
 const navbarTestData = [
   {
     id: "1",
+    text: "ColibUI",
+    to: "/colib",
+  },
+  {
+    id: "2",
     text: "Новости",
     to: "/news",
   },
   {
-    id: "2",
+    id: "3",
     text: "Раздел 2",
     to: "/section2",
-  },
-  {
-    id: "3",
-    text: "Раздел 3",
-    to: "/section3",
-    dropdownItems: [
-      { id: "31", text: "Раздел 3.1", to: "/section3/section3-1" },
-      { id: "32", text: "Раздел 3.2", to: "/section3/section3-2" },
-    ],
   },
   {
     id: "4",
@@ -183,6 +180,15 @@ getContent();
     align-items: center;
 
     padding-inline: 32px;
+  }
+
+  &__search-button {
+    justify-content: center;
+    align-items: center;
+
+    width: 36px;
+    height: 36px;
+    padding: 4px;
   }
 
   &__search {

@@ -80,7 +80,7 @@ const props = defineProps(getProps());
 .general-news {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 24px;
 
   &__title {
     color: var(--app-color-primary-norm);
@@ -143,7 +143,6 @@ const props = defineProps(getProps());
   &__divider {
     width: 100%;
     height: 2px;
-    margin: 8px 0 16px;
 
     background-image: linear-gradient(
       to right,

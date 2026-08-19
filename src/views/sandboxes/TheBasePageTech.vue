@@ -3,6 +3,19 @@
     <PageLoader v-if="isPageLoader" />
     <div class="the-base-page-tech__content">
       <div class="the-base-page-tech__block">
+        <div class="the-base-page-tech__section-header">VPagination</div>
+        <div class="the-base-page-tech__grid">
+          <div class="the-base-page-tech__column">
+            <VPagination
+              :current-page="1"
+              :page-size="5"
+              :page-sizes="[5, 10]"
+              :total="15"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="the-base-page-tech__block">
         <div class="the-base-page-tech__section-header">VButton</div>
         <div class="the-base-page-tech__grid">
           <div class="the-base-page-tech__column">
@@ -81,6 +94,7 @@ import { ref } from "vue";
 
 import VAccordion from "@components/VAccordion/VAccordion.vue";
 import VContentBadge from "@components/VContentBadge/VContentBadge.vue";
+import VPagination from "@components/VPagination/VPagination.vue";
 import VSwitcher from "@components/VSwitcher/VSwitcher.vue";
 import VButton from "@components/buttons/VButton/VButton.vue";
 import BaseIsland from "@components/islands/BaseIsland/BaseIsland.vue";

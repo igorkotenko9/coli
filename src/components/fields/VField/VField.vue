@@ -137,6 +137,7 @@ export const getProps = propsFactory(
       type: Boolean,
       default: false,
     },
+    cursor: { type: String as PropType<"pointer" | "text">, default: "text" },
   },
   "VField",
 );
