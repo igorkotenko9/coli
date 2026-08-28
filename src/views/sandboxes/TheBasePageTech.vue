@@ -79,7 +79,7 @@
         <div class="the-base-page-tech__section-header">VAccordion</div>
         <div class="the-base-page-tech__grid">
           <div class="the-base-page-tech__column">
-            <VAccordion icon-type="plus-minus"
+            <VAccordion accordion-name="Текст" icon-type="plus-minus"
               ><template #content>1</template></VAccordion
             >
           </div>

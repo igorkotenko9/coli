@@ -9,7 +9,7 @@
         class="v-accordion__icon"
         :class="iconDynamicClasses"
         :icon-name="displayedIcon"
-      /><span class="v-accordion__text">Текст</span>
+      /><span class="v-accordion__text">{{ props.accordionName }}</span>
     </div>
     <Transition name="slide">
       <div v-if="isUncovered" class="v-accordion__content">
@@ -35,6 +35,10 @@ export const getProps = propsFactory({
   iconPosition: {
     type: String as PropType<IconPositions>,
     default: "right",
+  },
+  accordionName: {
+    type: String,
+    required: true,
   },
 });
 export type Props = ExtractPropTypes<ReturnType<typeof getProps>>;
@@ -131,6 +135,7 @@ const controlAccordionHandler = () => {
   }
 
   &__content {
+    padding-top: 8px;
     padding-left: 32px;
   }
 }
