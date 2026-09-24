@@ -74,13 +74,9 @@ const currentRootTag = computed<CurrentRootTag>(() =>
 );
 
 const imagePath = computed(() => {
-  const publicUrl = import.meta.env.VITE_BASE_DIR;
+  const publicUrl = import.meta.env.BASE_URL;
 
-  if (
-    props.src?.startsWith("/") &&
-    import.meta.env.VITE_BASE_DIR !== "/" &&
-    import.meta.env.VITE_BASE_DIR !== "./"
-  ) {
+  if (props.src?.startsWith("/") && publicUrl !== "/" && publicUrl !== "./") {
     return `${publicUrl}${props.src}`;
   }
 

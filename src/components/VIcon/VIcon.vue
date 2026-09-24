@@ -17,7 +17,7 @@ const props = defineProps({
   path: String,
 });
 
-const staticAssetsPath = import.meta.env.VITE_BASE_DIR || "/";
+const staticAssetsPath = import.meta.env.BASE_URL || "/";
 
 const iconPath = computed(() => {
   const iconName = props.iconName;
