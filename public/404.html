@@ -15,14 +15,14 @@
       // Перенаправляем все SPA-маршруты на index.html
       var path = location.pathname;
       if (
-        path !== "/colib/" &&
-        !path.startsWith("/colib/404") &&
+        path !== "/" &&
+        !path.startsWith("/404") &&
         !path.includes(".") &&
-        !path.startsWith("/colib/@")
+        !path.startsWith("/@")
       ) {
         location.pathname = path;
       } else {
-        location.pathname = "/colib/";
+        location.pathname = "/";
       }
     </script>
   </body>
