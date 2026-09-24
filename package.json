@@ -24,7 +24,7 @@
     "lint": "npm-run-all --parallel lint:scripts lint:styles",
     "pre-commit": "npm-run-all lint prettify",
     "postinstall": "husky",
-    "predeploy": "npm run build-only && node -e \"require('fs').copyFileSync('dist/index.html', 'dist/404.html'); require('fs').writeFileSync('dist/_redirects', '/*    /index.html   200')\"",
+    "predeploy": "npm run build-only && node -e \"require('fs').copyFileSync('dist/index.html', 'dist/404.html')\"",
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
