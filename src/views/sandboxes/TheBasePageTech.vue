@@ -7,7 +7,7 @@
         <div class="the-base-page-tech__grid">
           <div class="the-base-page-tech__column">
             <VPagination
-              :current-page="1"
+              :current-page="2"
               :page-size="5"
               :page-sizes="[5, 10]"
               :total="15"
