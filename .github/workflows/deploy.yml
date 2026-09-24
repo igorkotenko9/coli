@@ -35,6 +35,9 @@ jobs:
       - name: Copy index.html to 404.html
         run: cp dist/index.html dist/404.html
 
+      - name: Create _redirects for SPA routing
+        run: echo '/*    /index.html   200' > dist/_redirects
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

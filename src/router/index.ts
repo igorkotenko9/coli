@@ -1,7 +1,7 @@
 import {
   useRouter as _useRouter,
   createRouter,
-  createWebHashHistory,
+  createWebHistory,
 } from "vue-router";
 
 const routes = [
@@ -44,7 +44,7 @@ const routes = [
 ];
 
 const router = createRouter({
-  history: createWebHashHistory(),
+  history: createWebHistory(import.meta.env.VITE_BASE_URL),
   routes: routes,
 });
 
