@@ -1,5 +1,5 @@
 <template>
-  <a class="aside-navbar-logo" href="/">
+  <RouterLink class="aside-navbar-logo" to="/">
     <VImage
       class="aside-navbar-logo__icon"
       src="../src/images/icons/icon.png"
@@ -9,10 +9,12 @@
         Технологический портал ДИТ
       </div>
     </Transition>
-  </a>
+  </RouterLink>
 </template>
 
 <script setup lang="ts">
+import { RouterLink } from "vue-router";
+
 import VImage from "@components/VImage";
 
 defineProps({
