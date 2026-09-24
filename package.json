@@ -23,7 +23,9 @@
     "build": "cross-env NODE_OPTIONS=--max-old-space-size=2048 npm run svg:generate-sprite && cross-env NODE_OPTIONS=--max-old-space-size=2048 vue-tsc --noEmit && cross-env NODE_OPTIONS=--max-old-space-size=2048 npm run vite-build",
     "lint": "npm-run-all --parallel lint:scripts lint:styles",
     "pre-commit": "npm-run-all lint prettify",
-    "postinstall": "husky"
+    "postinstall": "husky",
+    "predeploy": "npm run build-only",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@floating-ui/dom": "^1.6.12",
@@ -83,6 +85,7 @@
     "eslint-plugin-sonarjs": "^2.0.4",
     "eslint-plugin-unicorn": "^56.0.0",
     "eslint-plugin-vue": "^9.30.0",
+    "gh-pages": "^6.3.0",
     "husky": "^9.1.7",
     "lint-staged": "^16.2.7",
     "postcss-html": "^1.8.0",
@@ -106,5 +109,8 @@
       "bash -c 'npm run vue-tsc-check'"
     ],
     "*.{vue,scss,sass,css}": "npm run lint:styles"
-  }
+  },
+  "lint-staged.exclude": [
+    "dist/**/*"
+  ]
 }

@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coli</title>
+  </head>
+  <body>
+    <noscript>
+      <strong>
+        Для работы приложения включите JavaScript в настройках браузера.
+      </strong>
+    </noscript>
+    <script>
+      // Перенаправляем все SPA-маршруты на index.html
+      var path = location.pathname;
+      if (
+        path !== "/colib/" &&
+        !path.startsWith("/colib/404") &&
+        !path.includes(".") &&
+        !path.startsWith("/colib/@")
+      ) {
+        location.pathname = path;
+      } else {
+        location.pathname = "/colib/";
+      }
+    </script>
+  </body>
+</html>
