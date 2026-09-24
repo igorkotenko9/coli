@@ -1,9 +1,6 @@
 <template>
   <RouterLink class="aside-navbar-logo" to="/">
-    <VImage
-      class="aside-navbar-logo__icon"
-      src="../src/images/icons/icon.png"
-    />
+    <VImage class="aside-navbar-logo__icon" src="/images/icons/icon.png" />
     <Transition name="aside-navbar-logo__text-">
       <div v-if="isShowText" class="aside-navbar-logo__text">
         Технологический портал ДИТ
