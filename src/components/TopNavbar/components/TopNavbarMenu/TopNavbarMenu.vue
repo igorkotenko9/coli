@@ -44,10 +44,16 @@ import { useScrollLock } from "@vueuse/core";
 
 import { propsFactory } from "@utils";
 
-import { type NavbarMenuData } from "@components/TopNavbar";
-
 import TopNavbarItem from "../TopNavbarItem/TopNavbarItem.vue";
 import TopNavbarItemDropdown from "../TopNavbarItemDropdown/TopNavbarItemDropdown.vue";
+import { type TopNavbarItemDropdownMenuItem } from "../TopNavbarItemDropdown/index.ts";
+
+export type NavbarMenuItem = {
+  dropdownItems?: TopNavbarItemDropdownMenuItem[];
+  id: string;
+  text: string;
+  to: string;
+};
 
 export const getProps = propsFactory({
   isShowMobileMenu: {
@@ -55,7 +61,7 @@ export const getProps = propsFactory({
     default: false,
   },
   navbarMenuData: {
-    type: Object as PropType<NavbarMenuData>,
+    type: Array as PropType<NavbarMenuItem[]>,
   },
 });
 export type Props = ExtractPropTypes<ReturnType<typeof getProps>>;
@@ -69,7 +75,7 @@ const body = ref<HTMLElement | null>(document.body);
 
 const isLocked = useScrollLock(body);
 
-function hasEmptyDropdownMenu(item: NavbarMenuData[0]) {
+function hasEmptyDropdownMenu(item: NavbarMenuItem) {
   return !item.dropdownItems;
 }
 
