@@ -56,11 +56,11 @@ import CustomScrollbarWithButtons from "@components/scroll/CustomScrollbarWithBu
 import PrimaryGeneralNews from "../PrimaryGeneralNews/PrimaryGeneralNews.vue";
 
 export const getProps = propsFactory({
-  generalNewsData: { type: Object as PropType<newsData> },
+  generalNewsData: { type: Object as PropType<NewsData> },
 });
 export type Props = ExtractPropTypes<ReturnType<typeof getProps>>;
 
-export type newsData = {
+export type NewsData = {
   id: string;
   image: string;
   link: string;

@@ -15,7 +15,7 @@
         <TopNavbarMenu
           class="top-navbar__menu-item"
           :is-show-mobile-menu="isShowMobileMenu"
-          :navbar-menu-data="navbarData"
+          :navbar-menu-data="navbarData?.navbarMenuData"
         />
       </div>
 
@@ -56,18 +56,15 @@ import { propsFactory } from "@utils";
 import IconButton from "@components/buttons/IconButton/IconButton.vue";
 import VTextField from "@fields/VTextField/VTextField.vue";
 
-import { type TopNavbarItemDropdownMenuItem } from "./components/TopNavbarItemDropdown";
 import TopNavbarMenu from "./components/TopNavbarMenu/TopNavbarMenu.vue";
+import { type TopNavbarMenuItem } from "./components/TopNavbarMenu/index.ts";
 
 export const getProps = propsFactory({});
 export type Props = ExtractPropTypes<ReturnType<typeof getProps>>;
 
 export type NavbarData = {
-  dropdownItems?: TopNavbarItemDropdownMenuItem[];
-  id: string;
-  text: string;
-  to: string;
-}[];
+  navbarMenuData: TopNavbarMenuItem[];
+};
 </script>
 
 <script setup lang="ts">
@@ -94,47 +91,47 @@ const mobileMenuButtonHandler = () => {
 
 const navbarData = ref<NavbarData>();
 
-const navbarTestData = [
-  {
-    id: "1",
-    text: "ColibUI",
-    to: "/colib",
-  },
-  {
-    id: "2",
-    text: "Новости",
-    to: "/news",
-  },
-  {
-    id: "3",
-    text: "Раздел 2",
-    to: "/section2",
-  },
-  {
-    id: "4",
-    text: "Раздел 4",
-    to: "/section4",
-    dropdownItems: [
-      { id: "41", text: "Раздел 4.1", to: "/section4/section4-1" },
-      { id: "42", text: "Раздел 4.2", to: "/section4/section4-2" },
-    ],
-  },
-];
+const navbarTestData = {
+  navbarMenuData: [
+    {
+      id: "1",
+      text: "tColibUI",
+      to: "/colib",
+    },
+    {
+      id: "2",
+      text: "tНовости",
+      to: "/news",
+    },
+    {
+      id: "3",
+      text: "tРаздел 2",
+      to: "/section2",
+    },
+    {
+      id: "4",
+      text: "tРаздел 4",
+      to: "/section4",
+      dropdownItems: [
+        { id: "41", text: "Раздел 4.1", to: "/section4/section4-1" },
+        { id: "42", text: "Раздел 4.2", to: "/section4/section4-2" },
+      ],
+    },
+  ],
+};
 
 const getContent = async () => {
   const { execute, data } = useAxios<{
-    navbarData: NavbarData;
-  }>("/navbarTestData", {
+    navbarMenuData: TopNavbarMenuItem[];
+  }>("public/responses/navbarTestData.json", {
     method: "GET",
   });
 
   await execute();
 
-  if (data.value) {
-    //Логика при успешном выполнении запроса
-  } else {
-    navbarData.value = navbarTestData;
-  }
+  navbarData.value = data.value
+    ? { navbarMenuData: data.value.navbarMenuData }
+    : navbarTestData;
 };
 
 const showSearchFieldButtonHandler = () => {

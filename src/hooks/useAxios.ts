@@ -269,7 +269,7 @@ export function useAxios<T = any, R = AxiosResponse<T>, D = any>(
   url: string,
   config: AxiosRequestConfig<D>,
   options: Omit<UseAxiosOptions, "immediate"> = {},
-  substringUrl: null | string = "/api/v1",
+  substringUrl: null | string = "/",
 ) {
   const _options = merge({}, options, {
     immediate: false,

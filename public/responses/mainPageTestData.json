@@ -1,0 +1,82 @@
+{
+  "data": {
+    "mainData": {
+      "generalNews": [
+        {
+          "id": "001",
+          "title": "Главная новость",
+          "image": "/public/images/examples/example0.jpg",
+          "main": true,
+          "link": "/test/news/001",
+          "type": "Тип 1"
+        },
+        {
+          "id": "002",
+          "title": "Новость",
+          "image": "/public/images/examples/example1.jpg",
+          "link": "/test/news/002",
+          "type": "Тип 2"
+        },
+        {
+          "id": "003",
+          "title": "Новость с более длинным заголовком",
+          "image": "/public/images/examples/example1.jpg",
+          "link": "/test/news/003",
+          "type": "Тип 2"
+        },
+        {
+          "id": "004",
+          "title": "Новость с еще более длинным заголовком",
+          "image": "/public/images/examples/example2.jpg",
+          "link": "/test/news/004",
+          "type": "Тип 2"
+        },
+        {
+          "id": "005",
+          "title": "Новость с еще более длинным-длинным заголовком",
+          "image": "/public/images/examples/example1.jpg",
+          "link": "/test/news/005",
+          "type": "Тип 1"
+        },
+        {
+          "id": "006",
+          "title": "Новость с еще более длинным-длинным заголовком, прям более длинным",
+          "image": "/public/images/examples/example2.jpg",
+          "link": "/test/news/006",
+          "type": "Тип 3"
+        },
+        {
+          "id": "007",
+          "title": "Новость с еще более длинным-длинным заголовком, прям еще более длинным",
+          "image": "/public/images/examples/example1.jpg",
+          "link": "/test/news/007",
+          "type": "Тип 2"
+        },
+        {
+          "id": "008",
+          "title": "Новость с еще более длинным-длинным заголовком, прям еще более длинным",
+          "image": "/public/images/examples/example0.jpg",
+          "link": "/test/news/008",
+          "type": "Тип 2"
+        },
+        {
+          "id": "009",
+          "title": "Новость с еще более длинным-длинным заголовком, прям еще более длинным. Длиннее всех предыдущих",
+          "image": "/public/images/examples/example0.jpg",
+          "link": "/test/news/009",
+          "type": "Тип 2"
+        },
+        {
+          "id": "010",
+          "title": "Новость с еще более длинным-длинным заголовком, прям еще более длинным. Длиннее всех предыдущих намного",
+          "image": "/public/images/examples/example2.jpg",
+          "link": "/test/news/010",
+          "type": "Тип 2"
+        }
+      ]
+    },
+    "metaData": null
+  },
+  "errors": null,
+  "status": "success"
+}

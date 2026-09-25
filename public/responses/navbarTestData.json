@@ -1,0 +1,35 @@
+{
+  "data": {
+    "mainData": {
+      "navbarMenuData": [
+        {
+          "id": "1",
+          "text": "ColibUI",
+          "to": "/colib"
+        },
+        {
+          "id": "2",
+          "text": "Новости",
+          "to": "/news"
+        },
+        {
+          "id": "3",
+          "text": "Раздел 2",
+          "to": "/section2"
+        },
+        {
+          "id": "4",
+          "text": "Раздел 4",
+          "to": "/section4",
+          "dropdownItems": [
+            { "id": "41", "text": "Раздел 4.1", "to": "/section4/section4-1" },
+            { "id": "42", "text": "Раздел 4.2", "to": "/section4/section4-2" }
+          ]
+        }
+      ]
+    },
+    "metaData": null
+  },
+  "errors": null,
+  "status": "success"
+}
