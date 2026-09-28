@@ -109,7 +109,7 @@ const generalNewsTestData = {
 
 const getContent = async () => {
   const { execute, data } = useAxios<{ generalNews: GeneralNewsData }>(
-    `${import.meta.env.BASE_URL}public/responses/mainPageTestData.json`,
+    `${import.meta.env.BASE_URL}responses/mainPageTestData.json`,
     { method: "GET" },
   );
 
