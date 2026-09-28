@@ -123,7 +123,7 @@ const navbarTestData = {
 const getContent = async () => {
   const { execute, data } = useAxios<{
     navbarMenuData: TopNavbarMenuItem[];
-  }>("public/responses/navbarTestData.json", {
+  }>(`${import.meta.env.BASE_URL}public/responses/navbarTestData.json`, {
     method: "GET",
   });
 
