@@ -73,9 +73,7 @@ interface UseAxiosOptions extends Omit<_UseAxiosOptions, "onError"> {
 }
 
 const parallelRequestsLimit = pLimit(1);
-const instance = axios.create({
-  baseURL: window.location.origin,
-});
+const instance = axios.create({});
 
 instance.interceptors.request.use((config) => {
   return parallelRequestsLimit(() => {
@@ -289,10 +287,16 @@ export function useAxios<T = any, R = AxiosResponse<T>, D = any>(
   _options.onSuccess = defaultSuccessHandler.bind(null, onSuccessOptions);
 
   const finalUrl = substringUrl ? `${substringUrl}${url}` : url;
-  const fullUrl =
-    finalUrl.startsWith("http://") || finalUrl.startsWith("https://")
-      ? finalUrl
-      : `${window.location.origin}${finalUrl}`;
+
+  let fullUrl: string;
+  if (finalUrl.startsWith("http://") || finalUrl.startsWith("https://")) {
+    fullUrl = finalUrl;
+  } else {
+    const baseUrl = window.location.origin + (import.meta.env.BASE_URL || "");
+    fullUrl = `${baseUrl.replace(/\/+$/, "")  }/${  finalUrl.replace(/^\/+/, "")}`;
+  }
+
+  console.log("useAxios URL:", finalUrl, "->", fullUrl);
 
   const result = _useAxios<ResponseData<T>, R, D>(
     fullUrl,
