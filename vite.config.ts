@@ -5,8 +5,8 @@ import { defineConfig } from "vite";
 import vueDevTools from "vite-plugin-vue-devtools";
 
 // https://vite.dev/config/
-export default defineConfig({
-  base: "/coli/",
+export default defineConfig(({ mode }) => ({
+  base: mode === "production" ? "/coli/" : "/",
   plugins: [vue(), vueDevTools()],
   resolve: {
     alias: {
@@ -42,4 +42,4 @@ export default defineConfig({
       ),
     },
   },
-});
+}));
