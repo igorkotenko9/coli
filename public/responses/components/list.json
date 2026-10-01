@@ -1,0 +1,68 @@
+{
+  "data": {
+    "mainData": {
+      "components": [
+        {
+          "id": "11",
+          "name": "Кнопки",
+          "list": [
+            {
+              "id": "11001",
+              "name": "VButton",
+              "to": "/v-button"
+            },
+            {
+              "id": "11002",
+              "name": "IconButton",
+              "to": "/icon-button"
+            }
+          ]
+        },
+        {
+          "id": "12",
+          "name": "Поля",
+          "list": [
+            {
+              "id": "12001",
+              "name": "VField",
+              "to": "/v-field"
+            },
+            {
+              "id": "12002",
+              "name": "VInput",
+              "to": "/v-input"
+            },
+            {
+              "id": "12003",
+              "name": "VTextField",
+              "to": "/v-text-field"
+            },
+            {
+              "id": "12004",
+              "name": "VEmailField",
+              "to": "/v-email-field"
+            },
+            {
+              "id": "12005",
+              "name": "VPasswordField",
+              "to": "/v-password-field"
+            },
+            {
+              "id": "12006",
+              "name": "VPhoneField",
+              "to": "/v-phone-field"
+            },
+            {
+              "id": "12007",
+              "name": "VSelect",
+              "to": "/v-select"
+            }
+          ]
+        }
+      ],
+      "metaData": null
+    },
+    "errors": null,
+    "status": "success"
+  }
+}

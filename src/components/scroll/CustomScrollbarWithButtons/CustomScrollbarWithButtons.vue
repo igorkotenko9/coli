@@ -45,8 +45,8 @@ import {
 } from "@floating-ui/vue";
 import { useElementHover, useIntervalFn } from "@vueuse/core";
 
-import ScrollButton from "@components/buttons/ScrollButton";
 import CustomScrollbar2 from "@components/scroll/CustomScrollbar";
+import ScrollButton from "@components/scroll/ScrollButton";
 
 defineProps(getProps());
 const scrollbarRef = ref<ComponentExposed<typeof CustomScrollbar2>>();

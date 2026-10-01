@@ -179,7 +179,7 @@ import HelpTooltip from "@components/HelpTooltip";
 import InputMessages from "@components/InputMessages";
 import VHtmlText from "@components/VHtmlText";
 import VIcon from "@components/VIcon";
-import VLabel from "@components/fields/VLabel";
+import VLabel from "@components/VLabel";
 
 const props = defineProps(getProps());
 const emit = defineEmits<Emits>();
