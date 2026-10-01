@@ -1,0 +1,13 @@
+{
+  "data": {
+    "mainData": {
+      "component": {
+        "name": "VButton",
+        "description": "Описание"
+      },
+      "metaData": null
+    },
+    "errors": null,
+    "status": "success"
+  }
+}
