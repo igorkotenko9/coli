@@ -3,6 +3,7 @@
     class="v-button"
     :class="rootDynamicClasses"
     :button-type="buttonType"
+    :disabled="disabled"
     :mode="mode"
   >
     <span class="v-button__content">
