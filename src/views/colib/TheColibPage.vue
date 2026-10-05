@@ -53,6 +53,6 @@ getList();
   display: flex;
   gap: 32px;
 
-  padding: 32px 48px;
+  padding: 32px;
 }
 </style>
